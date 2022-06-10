@@ -1,7 +1,13 @@
 import React, { FC } from "react";
-import { Button, CoverImage, Input, MainLogo } from "components/";
-import Checkbox from "components/Checkbox/Checkbox";
-import HaveAccount from "components/HaveAccount/HaveAccount";
+import {
+  Button,
+  CoverImage,
+  Input,
+  MainLogo,
+  Title,
+  Checkbox,
+  HaveAccount,
+} from "components/";
 
 type Props = {};
 
@@ -13,12 +19,10 @@ const Login: FC = (props: Props) => {
           <MainLogo />
           <form className="pt-6 md:pt-10 max-w-[400px]">
             {/* Title */}
-            <h1 className="font-extrabold  text-2xl pb-1 md:pb-2">
-              Welcome back
-            </h1>
-            <p className="font-light text-xl pb-4">
-              Welcome back! Please enter your details
-            </p>
+            <Title
+              mainText="Welcome back"
+              paragraph="Welcome back! Please enter your details"
+            />
             {/* Input */}
             <Input
               title="Username"
