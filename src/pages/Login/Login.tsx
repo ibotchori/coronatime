@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { CoverImage, Input, MainLogo } from "components/";
+import { Button, CoverImage, Input, MainLogo } from "components/";
 
 type Props = {};
 
@@ -53,12 +53,7 @@ const Login: FC = (props: Props) => {
               </a>
             </div>
             {/* Button */}
-            <button
-              type="submit"
-              className="text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-green-300 uppercase font-bold rounded-lg text-md w-full  px-5 py-4 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800  mr-10"
-            >
-              Log In
-            </button>
+            <Button title="Log In" />
             {/* Sign UP */}
             <div className="flex justify-center mb-6 mt-4">
               <div className="flex ">
