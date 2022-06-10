@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Button, CoverImage, Input, MainLogo } from "components/";
 import Checkbox from "components/Checkbox/Checkbox";
+import HaveAccount from "components/HaveAccount/HaveAccount";
 
 type Props = {};
 
@@ -35,17 +36,11 @@ const Login: FC = (props: Props) => {
             <Checkbox label="Remember this device" anchor="Forgot password?" />
             {/* Button */}
             <Button title="Log In" />
-            {/* Sign UP */}
-            <div className="flex justify-center mb-6 mt-4">
-              <div className="flex ">
-                <p className="ml-2 text-md font-normal  text-gray-900 dark:text-gray-300 pr-2">
-                  Don’t have and account?
-                </p>
-              </div>
-              <a className="text-md font-bold text-grey-600" href="">
-                Sign up for free
-              </a>
-            </div>
+            {/* Have Account */}
+            <HaveAccount
+              title="Don’t have and account?"
+              anchor="Sign up for free"
+            />
           </form>
         </div>
       </div>
