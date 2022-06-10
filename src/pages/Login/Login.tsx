@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { CoverImage, MainLogo } from "../../components/";
+import { CoverImage, MainLogo } from "components/";
 
 type Props = {};
 
