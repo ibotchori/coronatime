@@ -14,8 +14,8 @@ type Props = {};
 const Login: FC = (props: Props) => {
   return (
     <div className="w-full h-full flex">
-      <div className="w-full md:w-[55%]  h-screen  ">
-        <div className="pl-5 sm:pl-14 md:pl-18 lg:pl-28 pt-7 overflow-hidden pr-5 ">
+      <div className="w-full md:w-[55%] flex justify-center md:justify-start  h-screen  ">
+        <div className="pl-5 md:pl-16 lg:pl-28 pt-7 overflow-hidden pr-5 ">
           <MainLogo />
           <form className="pt-10 max-w-[400px] ">
             {/* Title */}
