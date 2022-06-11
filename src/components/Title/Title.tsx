@@ -7,7 +7,7 @@ type Props = {
 
 function Title({ mainText, paragraph }: Props) {
   return (
-    <div>
+    <div className="pt-10">
       <h1 className="font-extrabold  text-2xl pb-2">{mainText}</h1>
       {paragraph && (
         <p className="font-light text-lg sm:text-xl pb-4">{paragraph}</p>
