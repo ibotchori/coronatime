@@ -15,7 +15,7 @@ const SignUp = (props: Props) => {
   return (
     <div className="w-full h-full flex">
       <div className="w-full md:w-[55%] flex justify-center md:justify-start  h-screen  ">
-        <div className=" md:w-fit lg:w-full pl-5 md:pl-16 lg:pl-28 pt-7 overflow-hidden pr-5 ">
+        <div className=" md:w-fit lg:w-full pl-5 md:pl-16 lg:pl-28 pt-7 pr-5 ">
           {/* Logo */}
           <MainLogo />
           {/* Title */}
@@ -23,7 +23,7 @@ const SignUp = (props: Props) => {
             mainText="Welcome to Coronatime"
             paragraph="Please enter required info to sign up"
           />
-          <form className=" max-w-[400px] ">
+          <form className=" max-w-[400px] pb-5">
             {/* Input */}
             <Input
               title="Username"
