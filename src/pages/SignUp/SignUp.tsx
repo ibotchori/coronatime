@@ -7,54 +7,61 @@ import {
   Title,
   Checkbox,
   HaveAccount,
+  LanguageToggle,
 } from "components/";
+import { useTranslation } from "react-i18next";
 
 type Props = {};
 
 const SignUp = (props: Props) => {
+  const { t } = useTranslation();
+
   return (
     <div className="w-full h-full flex">
       <div className="w-full md:w-[55%] flex justify-center md:justify-start  h-screen  ">
         <div className=" md:w-fit lg:w-full pl-5 md:pl-16 lg:pl-28 pt-7 pr-5 ">
-          {/* Logo */}
-          <MainLogo />
+          {/* Logo & language */}
+          <div className="flex justify-between">
+            <MainLogo />
+            <div>
+              <LanguageToggle />
+            </div>
+          </div>
           {/* Title */}
-          <Title
-            mainText="Welcome to Coronatime"
-            paragraph="Please enter required info to sign up"
-          />
+
+          <Title mainText={t("signUpTitle")} paragraph={t("signUpSubTitle")} />
           <form className=" max-w-[400px] pb-5">
             {/* Input */}
             <Input
-              title="Username"
+              title={t("signUpUsername")}
               type="text"
               id="username"
-              placeholder="Enter unique username or email"
+              placeholder={t("signUpUsernamePlaceholder")}
             />
             <Input
-              title="Email"
+              title={t("signUpEmail")}
               type="email"
               id="email"
-              placeholder="Enter your email"
+              placeholder={t("signUpEmailPlaceholder")}
             />
             <Input
-              title="Password"
+              title={t("signUpPassword")}
               type="text"
               id="password"
-              placeholder="Fill in password"
+              placeholder={t("signUpPasswordPlaceholder")}
             />
             <Input
-              title="Repeat password"
+              title={t("signUpRepeatPassword")}
               type="text"
               id="password"
-              placeholder="Repeat password"
+              placeholder={t("signUpRepeatPasswordPlaceholder")}
             />
             {/* Checkbox */}
-            <Checkbox label="Remember this device" anchor="" />
+            <Checkbox label={t("signUpRemember")} anchor="" />
             {/* Button */}
-            <Button title="Log In" />
+            <Button title={t("signUp")} />
             {/* Have Account */}
-            <HaveAccount title="Already have an account?" anchor="Log in" />
+            <HaveAccount title={t("signUpAccount")} anchor={t("signUpLogIn")} />
           </form>
         </div>
       </div>

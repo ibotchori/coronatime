@@ -1,0 +1,16 @@
+{
+  "signUpTitle": "კეთილი იყოს თქვენი მობრძანება კორონათაიმზე",
+  "signUpSubTitle": "რეგისტრაციისთვის შეიყვანეთ მოთხოვნილი ინფორმაცია",
+  "signUpUsername": "მომხმარებლის სახელი",
+  "signUpUsernamePlaceholder": "შეიყვანეთ მომხმარებლის სახელი",
+  "signUpEmail": "ელ-ფოსტა",
+  "signUpEmailPlaceholder": "შეიყვანეთ ელ-ფოსტა",
+  "signUpPassword": "პაროლი",
+  "signUpPasswordPlaceholder": "შეიყვანეთ პაროლი",
+  "signUpRepeatPassword": "გაიმეორეთ პაროლი",
+  "signUpRepeatPasswordPlaceholder": "გაიმეორეთ პაროლი",
+  "signUpRemember": "მოწყობილობის დამახსოვრება",
+  "signUp": "რეგისტრაცია",
+  "signUpAccount": "უკვე გაქვთ ანგარიში?",
+  "signUpLogIn": "შესვლა"
+}
