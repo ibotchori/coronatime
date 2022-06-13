@@ -5,6 +5,7 @@ import "./i18n";
 function App() {
   return (
     <div>
+      <Login />
       <SignUp />
     </div>
   );

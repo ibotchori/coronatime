@@ -28,7 +28,6 @@ const SignUp = (props: Props) => {
             </div>
           </div>
           {/* Title */}
-
           <Title mainText={t("signUpTitle")} paragraph={t("signUpSubTitle")} />
           <form className=" max-w-[400px] pb-5">
             {/* Input */}

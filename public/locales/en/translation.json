@@ -12,5 +12,16 @@
   "signUpRemember": "Remember this device",
   "signUp": "Sign Up",
   "signUpAccount": "Already have an account?",
-  "signUpLogIn": "LogIn"
+  "signUpLogIn": "LogIn",
+  "logInTitle": "Welcome back",
+  "logInSubTitle": "Welcome back! Please enter your details",
+  "logInUsername": "Username",
+  "logInUsernamePlaceholder": "Enter unique username or email",
+  "logInPassword": "Password",
+  "logInPasswordPlaceholder": "Fill in password",
+  "logInRemember": "Remember this device",
+  "logInForgot": "Forgot password?",
+  "logIn": "Log In",
+  "logInAccount": "Don’t have and account?",
+  "logInSignUp": "Sign up for free"
 }

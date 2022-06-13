@@ -12,5 +12,16 @@
   "signUpRemember": "მოწყობილობის დამახსოვრება",
   "signUp": "რეგისტრაცია",
   "signUpAccount": "უკვე გაქვთ ანგარიში?",
-  "signUpLogIn": "შესვლა"
+  "signUpLogIn": "შესვლა",
+  "logInTitle": "კეთილი იყოს თქვენი დაბრუნება",
+  "logInSubTitle": "კეთილი იყოს თქვენი დაბრუნება! შეიყვანეთ თქვენი მონაცემები",
+  "logInUsername": "მომხმარებლის სახელი",
+  "logInUsernamePlaceholder": "შეიყვანეთ მომხმარებლის სახელიl",
+  "logInPassword": "პაროლი",
+  "logInPasswordPlaceholder": "შეიყვანეთ პაროლი",
+  "logInRemember": "მოწყობილობის დამახსოვრება",
+  "logInForgot": "დაგავიწყდათ პაროლი?",
+  "logIn": "შესვლა",
+  "logInAccount": "არ ხარ დარეგისტრირებული?",
+  "logInSignUp": "რეგისტრაცია"
 }
