@@ -30,5 +30,6 @@
   "newPassword": "ახალი პაროლი",
   "newPasswordPlaceholder": "შეიყვანეთ ახალი პაროლი",
   "repeatPassword": "გაიმეორეთ პაროლი",
-  "repeatPassword": "ცვლილებების შენახვა"
+  "saveChanges": "ცვლილებების შენახვა",
+  "confirmationText": "ჩვენ გამოგიგზავნეთ დამადასტურებელი წერილი ელ-ფოსტაზე"
 }

@@ -30,5 +30,7 @@
   "newPassword": "New Password",
   "newPasswordPlaceholder": "Enter new password",
   "repeatPassword": "Repeat Password",
-  "saveChanges": "Save Changes"
+  "saveChanges": "Save Changes",
+  "confirmationText": "We have sent you a confirmation email"
+
   }
