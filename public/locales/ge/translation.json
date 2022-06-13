@@ -23,5 +23,8 @@
   "logInForgot": "დაგავიწყდათ პაროლი?",
   "logIn": "შესვლა",
   "logInAccount": "არ ხარ დარეგისტრირებული?",
-  "logInSignUp": "რეგისტრაცია"
+  "logInSignUp": "რეგისტრაცია",
+  "resetPassword": "პაროლის აღდგენა",
+  "email": "ელ-ფოსტა",
+  "emailPlaceholder": "შეიყვანეთ ელ-ფოსტა"
 }

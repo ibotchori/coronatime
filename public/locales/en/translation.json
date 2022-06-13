@@ -23,5 +23,8 @@
   "logInForgot": "Forgot password?",
   "logIn": "Log In",
   "logInAccount": "Don’t have and account?",
-  "logInSignUp": "Sign up for free"
+  "logInSignUp": "Sign up for free",
+  "resetPassword": "Reset Password",
+  "email": "Email",
+  "emailPlaceholder": "Enter your email"
 }
