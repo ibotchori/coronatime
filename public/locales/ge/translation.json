@@ -29,5 +29,6 @@
   "emailPlaceholder": "შეიყვანეთ ელ-ფოსტა",
   "newPassword": "ახალი პაროლი",
   "newPasswordPlaceholder": "შეიყვანეთ ახალი პაროლი",
-  "repeatPassword": "გაიმეორეთ პაროლი"
+  "repeatPassword": "გაიმეორეთ პაროლი",
+  "repeatPassword": "ცვლილებების შენახვა"
 }

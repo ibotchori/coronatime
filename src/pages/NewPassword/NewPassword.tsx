@@ -27,7 +27,7 @@ const NewPassword = (props: Props) => {
       </div>
       <div className="w-full px-6 sm:relative absolute bottom-0  ">
         <div className="max-w-[400px]  py-8 mx-auto ">
-          <Button title={t("resetPassword")} />
+          <Button title={t("saveChanges")} />
         </div>
       </div>
     </div>

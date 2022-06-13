@@ -29,5 +29,6 @@
   "emailPlaceholder": "Enter your email",
   "newPassword": "New Password",
   "newPasswordPlaceholder": "Enter new password",
-  "repeatPassword": "Repeat Password"
+  "repeatPassword": "Repeat Password",
+  "saveChanges": "Save Changes"
   }
