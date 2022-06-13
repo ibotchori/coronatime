@@ -1,8 +1,8 @@
 {
   "signUpTitle": "Welcome to Coronatime",
   "signUpSubTitle": "Please enter required info to sign up",
-  "signUpUsername": "Username",
-  "signUpUsernamePlaceholder": "Enter unique username or email",
+  "username": "Username",
+  "usernamePlaceholder": "Enter unique username or email",
   "signUpEmail": "Email",
   "signUpEmailPlaceholder": "Enter unique Email",
   "signUpPassword": "Password",
@@ -26,5 +26,8 @@
   "logInSignUp": "Sign up for free",
   "resetPassword": "Reset Password",
   "email": "Email",
-  "emailPlaceholder": "Enter your email"
-}
+  "emailPlaceholder": "Enter your email",
+  "newPassword": "New Password",
+  "newPasswordPlaceholder": "Enter new password",
+  "repeatPassword": "Repeat Password"
+  }

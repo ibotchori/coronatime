@@ -26,5 +26,8 @@
   "logInSignUp": "რეგისტრაცია",
   "resetPassword": "პაროლის აღდგენა",
   "email": "ელ-ფოსტა",
-  "emailPlaceholder": "შეიყვანეთ ელ-ფოსტა"
+  "emailPlaceholder": "შეიყვანეთ ელ-ფოსტა",
+  "newPassword": "ახალი პაროლი",
+  "newPasswordPlaceholder": "შეიყვანეთ ახალი პაროლი",
+  "repeatPassword": "გაიმეორეთ პაროლი"
 }
