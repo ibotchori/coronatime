@@ -1,12 +1,14 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  width?: string;
+};
 
-const MainLogo = (props: Props) => {
+const MainLogo = ({ width }: Props) => {
   return (
     <div>
       <svg
-        width="170"
+        width={width ? width : "170"}
         height="42"
         viewBox="0 0 170 42"
         fill="none"

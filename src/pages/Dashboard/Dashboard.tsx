@@ -8,7 +8,12 @@ const Dashboard = (props: Props) => {
     <div className="w-full min-h-screen py-4">
       <div className="flex justify-between border-b-2 border-gray-200 px-4 sm:px-10 md:px-20 py-3">
         <div className="pb-3 ">
-          <MainLogo />
+          <div className="sm:hidden">
+            <MainLogo width="150" />
+          </div>
+          <div className="sm:block hidden">
+            <MainLogo />
+          </div>
         </div>
 
         <div className="flex justify-between pt-1">
