@@ -6,6 +6,7 @@ import {
   EmailConfirmation,
   PasswordConfirmation,
   NewPassword,
+  AccountConfirmation,
 } from "./pages/";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           path="/password-confirmation"
           element={<PasswordConfirmation />}
         />
+        <Route path="/account-confirmation" element={<AccountConfirmation />} />
       </Routes>
     </BrowserRouter>
   );

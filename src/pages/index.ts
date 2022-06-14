@@ -4,3 +4,4 @@ export { default as ResetPassword } from "./ResetPassword/ResetPassword";
 export { default as EmailConfirmation } from "./EmailConfirmation/EmailConfirmation";
 export { default as NewPassword } from "./NewPassword/NewPassword";
 export { default as PasswordConfirmation } from "./PasswordConfirmation/PasswordConfirmation";
+export { default as AccountConfirmation } from "./AccountConfirmation/AccountConfirmation";

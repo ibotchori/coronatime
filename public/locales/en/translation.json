@@ -33,5 +33,6 @@
   "saveChanges": "Save Changes",
   "confirmationText": "We have sent you a confirmation email",
   "signIn": "Sign In",
-  "passwordUpdated": "Your password has been updated successfully"
+  "passwordUpdated": "Your password has been updated successfully",
+  "accountConfirmed": "Your account is confirmed, you can sign in"
   }
