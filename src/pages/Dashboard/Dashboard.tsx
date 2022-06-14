@@ -56,14 +56,14 @@ const Dashboard = (props: Props) => {
             <span className="font-extrabold text-[39px]">17,750</span>
           </div>
           <div className="w-full md:w-[32%] h-[200px] sm:h-[300px] bg-green-50 rounded-3xl flex flex-col justify-center items-center my-2">
-            <img src={recovered} alt="" />
+            <img className="pt-6" src={recovered} alt="" />
             <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
               Recovered
             </p>
             <span className="font-extrabold text-[39px]">17,750</span>
           </div>
           <div className="w-full md:w-[32%] h-[200px] sm:h-[300px] bg-yellow-50 rounded-3xl flex flex-col justify-center items-center my-2">
-            <img src={death} alt="" />
+            <img className="pt-3" src={death} alt="" />
             <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
               Death
             </p>
