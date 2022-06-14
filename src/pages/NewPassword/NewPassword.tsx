@@ -8,7 +8,7 @@ const NewPassword = (props: Props) => {
   const { t } = useTranslation();
   return (
     <div className="flex flex-col items-center h-screen">
-      <div className="w-full pt-10 sm:pl-0 pl-5 pb-4 sm:pb-32 flex flex-col items-start sm:items-center">
+      <div className="w-full pt-10 sm:pl-0 pl-5 pb-4 sm:pb-20 flex flex-col items-start sm:items-center">
         <MainLogo />
       </div>
       <Title mainText={t("resetPassword")} />
