@@ -12,22 +12,23 @@ const NewPassword = (props: Props) => {
         <MainLogo />
       </div>
       <Title mainText={t("resetPassword")} />
-
-      <div className="w-full px-6">
-        <div className="max-w-[400px] pt-10 m-auto  ">
-          <Input
-            title={t("newPassword")}
-            placeholder={t("newPasswordPlaceholder")}
-          />
-          <Input
-            title={t("repeatPassword")}
-            placeholder={t("repeatPassword")}
-          />
+      <div className="w-full  px-6 flex flex-col sm:justify-start sm:h-min justify-between h-full">
+        <div className="w-full">
+          <div className="max-w-[400px] pt-10 mx-auto  ">
+            <Input
+              title={t("newPassword")}
+              placeholder={t("newPasswordPlaceholder")}
+            />
+            <Input
+              title={t("repeatPassword")}
+              placeholder={t("repeatPassword")}
+            />
+          </div>
         </div>
-      </div>
-      <div className="w-full px-6 sm:relative absolute bottom-0  ">
-        <div className="max-w-[400px]  py-8 mx-auto ">
-          <Button title={t("saveChanges")} />
+        <div className="w-full">
+          <div className="max-w-[400px]  py-8 mx-auto overflow-hidden ">
+            <Button title={t("saveChanges")} />
+          </div>
         </div>
       </div>
     </div>
