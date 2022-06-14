@@ -5,3 +5,4 @@ export { default as EmailConfirmation } from "./EmailConfirmation/EmailConfirmat
 export { default as NewPassword } from "./NewPassword/NewPassword";
 export { default as PasswordConfirmation } from "./PasswordConfirmation/PasswordConfirmation";
 export { default as AccountConfirmation } from "./AccountConfirmation/AccountConfirmation";
+export { default as Dashboard } from "./Dashboard/Dashboard";
