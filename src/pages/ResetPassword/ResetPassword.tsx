@@ -18,7 +18,7 @@ const ResetPassword = (props: Props) => {
           <Input title={t("email")} placeholder={t("emailPlaceholder")} />
         </div>
       </div>
-      <div className="w-full px-6 sm:relative absolute bottom-0  ">
+      <div className="w-full px-6 sm:relative absolute bottom-0 overflow-hidden ">
         <div className="max-w-[400px]  py-8 mx-auto ">
           <Button title={t("resetPassword")} />
         </div>
