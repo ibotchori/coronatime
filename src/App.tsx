@@ -3,7 +3,8 @@ import {
   Login,
   SignUp,
   ResetPassword,
-  Confirmation,
+  EmailConfirmation,
+  PasswordConfirmation,
   NewPassword,
 } from "./pages/";
 
@@ -15,7 +16,11 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/new-password" element={<NewPassword />} />
-        <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/email-confirmation" element={<EmailConfirmation />} />
+        <Route
+          path="/password-confirmation"
+          element={<PasswordConfirmation />}
+        />
       </Routes>
     </BrowserRouter>
   );

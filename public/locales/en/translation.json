@@ -31,6 +31,7 @@
   "newPasswordPlaceholder": "Enter new password",
   "repeatPassword": "Repeat Password",
   "saveChanges": "Save Changes",
-  "confirmationText": "We have sent you a confirmation email"
-
+  "confirmationText": "We have sent you a confirmation email",
+  "signIn": "Sign In",
+  "passwordUpdated": "Your password has been updated successfully"
   }
