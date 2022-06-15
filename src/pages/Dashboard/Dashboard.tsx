@@ -34,7 +34,7 @@ const Dashboard = (props: Props) => {
       {/* Toggle Buttons */}
       <div className=" px-4 sm:px-10 md:px-28">
         <p className="font-bold text-2xl pt-12 pb-10">Worldwide Statistics</p>
-        <div className="border-b-2 pb-3 text-base flex ">
+        <div className="border-b-2 border-slate-50 pb-3 text-base flex ">
           <div className="w-[100px] sm:w-[130px]">
             <span className="hover:font-bold cursor-pointer hover:border-b-4 hover:border-black pb-3">
               Worldwide
@@ -46,28 +46,211 @@ const Dashboard = (props: Props) => {
             </span>
           </div>
         </div>
-        {/* Worldwide */}
-        <div className="flex md:flex-row flex-col justify-between items-center py-2 sm:py-10  w-full h-full ">
-          <div className=" w-full md:w-[32%] h-[200px] sm:h-[300px] bg-blue-50 rounded-3xl flex flex-col justify-center items-center my-2">
-            <img src={newCases} alt="" />
-            <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
-              New cases
-            </p>
-            <span className="font-extrabold text-[39px]">17,750</span>
+      </div>
+      {/* Worldwide Content */}
+      <div className="flex md:flex-row flex-col justify-between items-center py-2 sm:py-10  w-full h-full px-4 sm:px-10 md:px-28 ">
+        <div className=" w-full md:w-[32%] h-[200px] sm:h-[300px] bg-blue-50 rounded-3xl flex flex-col justify-center items-center my-2">
+          <img src={newCases} alt="" />
+          <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
+            New cases
+          </p>
+          <span className="font-extrabold text-[39px]">17,750</span>
+        </div>
+        <div className="w-full md:w-[32%] h-[200px] sm:h-[300px] bg-green-50 rounded-3xl flex flex-col justify-center items-center my-2">
+          <img className="pt-6" src={recovered} alt="" />
+          <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
+            Recovered
+          </p>
+          <span className="font-extrabold text-[39px]">17,750</span>
+        </div>
+        <div className="w-full md:w-[32%] h-[200px] sm:h-[300px] bg-yellow-50 rounded-3xl flex flex-col justify-center items-center my-2">
+          <img className="pt-3" src={death} alt="" />
+          <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
+            Death
+          </p>
+          <span className="font-extrabold text-[39px]">17,750</span>
+        </div>
+      </div>
+      {/* By country Content */}
+      <div className="sm:border-2 border-slate-100  sm:rounded-xl my-6 px-0 sm:mx-10 md:mx-28  ">
+        {/* Table header */}
+        <div className="sm:w-full h-16 py-5 px-2 sm:px-10 bg-slate-100 sm:rounded-tl-lg  sm:rounded-tr-lg  ">
+          <div className="flex justify-between md:w-[80%] lg:w-[70%] font-semibold text-sm">
+            <div className="flex cursor-pointer">
+              <p>Location</p>
+              <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
+                <svg
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M5 0.5L10 5.5L0 5.5L5 0.5Z" fill="#BFC0C4" />
+                </svg>
+                <svg
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M5 5.5L0 0.5H10L5 5.5Z" fill="#010414" />
+                </svg>
+              </div>
+            </div>
+            <div className="flex cursor-pointer">
+              <p>New cases</p>
+              <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
+                <svg
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M5 0.5L10 5.5L0 5.5L5 0.5Z" fill="#BFC0C4" />
+                </svg>
+                <svg
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M5 5.5L0 0.5H10L5 5.5Z" fill="#010414" />
+                </svg>
+              </div>
+            </div>
+            <div className="flex cursor-pointer">
+              <p>Death</p>
+              <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
+                <svg
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M5 0.5L10 5.5L0 5.5L5 0.5Z" fill="#BFC0C4" />
+                </svg>
+                <svg
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M5 5.5L0 0.5H10L5 5.5Z" fill="#010414" />
+                </svg>
+              </div>
+            </div>
+            <div className="flex cursor-pointer">
+              <p>Recovered</p>
+              <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
+                <svg
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M5 0.5L10 5.5L0 5.5L5 0.5Z" fill="#BFC0C4" />
+                </svg>
+                <svg
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M5 5.5L0 0.5H10L5 5.5Z" fill="#010414" />
+                </svg>
+              </div>
+            </div>
           </div>
-          <div className="w-full md:w-[32%] h-[200px] sm:h-[300px] bg-green-50 rounded-3xl flex flex-col justify-center items-center my-2">
-            <img className="pt-6" src={recovered} alt="" />
-            <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
-              Recovered
-            </p>
-            <span className="font-extrabold text-[39px]">17,750</span>
+        </div>
+        {/* Table */}
+        <div className="overflow-scroll max-h-[600px] ">
+          <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
+            <div className="flex justify-between md:w-[80%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-24 ">
+                <p>Worldwide</p>
+              </div>
+              <div className="flex w-24 pl-1 ">
+                <p>9,704,000</p>
+              </div>
+              <div className="flex w-24  pl-6">
+                <p>66,591</p>
+              </div>
+              <div className="flex w-24  pl-3">
+                <p>5,803,905</p>
+              </div>
+            </div>
           </div>
-          <div className="w-full md:w-[32%] h-[200px] sm:h-[300px] bg-yellow-50 rounded-3xl flex flex-col justify-center items-center my-2">
-            <img className="pt-3" src={death} alt="" />
-            <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
-              Death
-            </p>
-            <span className="font-extrabold text-[39px]">17,750</span>
+          <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
+            <div className="flex justify-between md:w-[80%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-24 ">
+                <p>USA</p>
+              </div>
+              <div className="flex w-24 pl-1 ">
+                <p>704,000</p>
+              </div>
+              <div className="flex w-24  pl-6">
+                <p>591</p>
+              </div>
+              <div className="flex w-24  pl-3">
+                <p>5</p>
+              </div>
+            </div>
+          </div>
+          <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
+            <div className="flex justify-between md:w-[80%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-24 ">
+                <p>Costarica</p>
+              </div>
+              <div className="flex w-24 pl-1 ">
+                <p>9,704</p>
+              </div>
+              <div className="flex w-24  pl-6">
+                <p>6</p>
+              </div>
+              <div className="flex w-24  pl-3">
+                <p>954,700</p>
+              </div>
+            </div>
+          </div>
+          <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
+            <div className="flex justify-between md:w-[80%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-24 ">
+                <p>Germany</p>
+              </div>
+              <div className="flex w-24 pl-1 ">
+                <p>704</p>
+              </div>
+              <div className="flex w-24  pl-6">
+                <p>6,500</p>
+              </div>
+              <div className="flex w-24  pl-3">
+                <p>700</p>
+              </div>
+            </div>
+          </div>
+          <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
+            <div className="flex justify-between md:w-[80%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-24 ">
+                <p>Georgia</p>
+              </div>
+              <div className="flex w-24 pl-1 ">
+                <p>100,201</p>
+              </div>
+              <div className="flex w-24  pl-6">
+                <p>80</p>
+              </div>
+              <div className="flex w-24  pl-3">
+                <p>624,000</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
