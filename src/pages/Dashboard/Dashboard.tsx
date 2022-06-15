@@ -29,7 +29,7 @@ const Dashboard = (props: Props) => {
           <button className="sm:hidden flex pl-4 pt-1">&#9776;</button>
           <div className="pl-6 pt-1  h-8 hidden sm:flex">
             <p className="border-r-2 pr-2  font-bold ">Irakli Botchorishvili</p>
-            <button className="pl-2 pb-1">{t("logOut")}</button>
+            <button className="pl-2 pb-1 w-20">{t("logOut")}</button>
           </div>
         </div>
       </div>
@@ -55,21 +55,21 @@ const Dashboard = (props: Props) => {
       <div className="flex md:flex-row flex-col justify-between items-center py-2 sm:py-10  w-full h-full px-4 sm:px-10 md:px-28 ">
         <div className=" w-full md:w-[32%] h-[200px] sm:h-[300px] bg-blue-50 rounded-3xl flex flex-col justify-center items-center my-2">
           <img src={newCases} alt="" />
-          <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
+          <p className="text-xl pt-4 text-center sm:pt-8 pb-2 sm:pb-4 font-semibold">
             {t("newCases")}
           </p>
           <span className="font-extrabold text-[39px]">17,750</span>
         </div>
         <div className="w-full md:w-[32%] h-[200px] sm:h-[300px] bg-green-50 rounded-3xl flex flex-col justify-center items-center my-2">
           <img className="pt-6" src={recovered} alt="" />
-          <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
+          <p className="text-xl pt-4 text-center sm:pt-8 pb-2 sm:pb-4 font-semibold">
             {t("recovered")}
           </p>
           <span className="font-extrabold text-[39px]">17,750</span>
         </div>
         <div className="w-full md:w-[32%] h-[200px] sm:h-[300px] bg-yellow-50 rounded-3xl flex flex-col justify-center items-center my-2">
           <img className="pt-3" src={death} alt="" />
-          <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
+          <p className="text-xl pt-4 text-center sm:pt-8 pb-2 sm:pb-4 font-semibold">
             {t("death")}
           </p>
           <span className="font-extrabold text-[39px]">17,750</span>
