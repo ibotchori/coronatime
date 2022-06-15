@@ -78,10 +78,10 @@ const Dashboard = (props: Props) => {
       {/* By country Content */}
       <div className="sm:border-2 border-slate-100  sm:rounded-xl my-6 px-0 sm:mx-10 md:mx-28  ">
         {/* Table header */}
-        <div className="sm:w-full h-16 py-5 px-2 sm:px-10 bg-slate-100 sm:rounded-tl-lg  sm:rounded-tr-lg  ">
-          <div className="flex justify-between md:w-[80%] lg:w-[70%] font-semibold text-sm">
-            <div className="flex cursor-pointer">
-              <p>{t("location")}</p>
+        <div className="sm:w-full h-16 py-5 px-2 sm:px-10 bg-slate-100 sm:rounded-tl-lg overflow-hidden  sm:rounded-tr-lg  ">
+          <div className="flex justify-between md:w-[95%] lg:w-[70%] font-semibold text-sm">
+            <div className="flex cursor-pointer w-[85px] md:w-[90px]">
+              <p className="truncate md:text-clip">{t("location")}</p>
               <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
                 <svg
                   width="10"
@@ -103,8 +103,8 @@ const Dashboard = (props: Props) => {
                 </svg>
               </div>
             </div>
-            <div className="flex cursor-pointer">
-              <p>{t("newCases")}</p>
+            <div className="flex cursor-pointer w-[85px] md:w-[150px]">
+              <p className="truncate md:text-clip">{t("newCases")}</p>
               <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
                 <svg
                   width="10"
@@ -126,8 +126,8 @@ const Dashboard = (props: Props) => {
                 </svg>
               </div>
             </div>
-            <div className="flex cursor-pointer">
-              <p>{t("death")}</p>
+            <div className="flex cursor-pointer w-[85px] md:w-[105px]">
+              <p className="truncate md:text-clip">{t("death")}</p>
               <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
                 <svg
                   width="10"
@@ -149,8 +149,8 @@ const Dashboard = (props: Props) => {
                 </svg>
               </div>
             </div>
-            <div className="flex cursor-pointer">
-              <p>{t("recovered")}</p>
+            <div className="flex cursor-pointer w-[85px] md:w-[150px]">
+              <p className="truncate md:text-clip">{t("recovered")}</p>
               <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
                 <svg
                   width="10"
@@ -177,82 +177,130 @@ const Dashboard = (props: Props) => {
         {/* Table */}
         <div className="overflow-scroll max-h-[600px] ">
           <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
-            <div className="flex justify-between md:w-[80%] lg:w-[70%] font-base text-xs sm:text-sm">
-              <div className="flex w-24 ">
+            <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-[85px] md:w-[90px] ">
                 <p>Worldwide</p>
               </div>
-              <div className="flex w-24 pl-1 ">
+              <div className="flex w-[85px] md:w-[150px] ">
                 <p>9,704,000</p>
               </div>
-              <div className="flex w-24  pl-6">
+              <div className="flex   w-[85px] md:w-[105px]">
                 <p>66,591</p>
               </div>
-              <div className="flex w-24  pl-3">
+              <div className="flex  w-[85px] md:w-[150px]">
                 <p>5,803,905</p>
               </div>
             </div>
           </div>
           <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
-            <div className="flex justify-between md:w-[80%] lg:w-[70%] font-base text-xs sm:text-sm">
-              <div className="flex w-24 ">
+            <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-[85px] md:w-[90px] ">
                 <p>USA</p>
               </div>
-              <div className="flex w-24 pl-1 ">
-                <p>704,000</p>
+              <div className="flex w-[85px] md:w-[150px] ">
+                <p>9,704</p>
               </div>
-              <div className="flex w-24  pl-6">
-                <p>591</p>
+              <div className="flex   w-[85px] md:w-[105px]">
+                <p>66,591</p>
               </div>
-              <div className="flex w-24  pl-3">
+              <div className="flex  w-[85px] md:w-[150px]">
                 <p>5</p>
               </div>
             </div>
           </div>
           <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
-            <div className="flex justify-between md:w-[80%] lg:w-[70%] font-base text-xs sm:text-sm">
-              <div className="flex w-24 ">
+            <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-[85px] md:w-[90px] ">
                 <p>Costarica</p>
               </div>
-              <div className="flex w-24 pl-1 ">
-                <p>9,704</p>
+              <div className="flex w-[85px] md:w-[150px] ">
+                <p>9</p>
               </div>
-              <div className="flex w-24  pl-6">
-                <p>6</p>
+              <div className="flex   w-[85px] md:w-[105px]">
+                <p>66,591</p>
               </div>
-              <div className="flex w-24  pl-3">
-                <p>954,700</p>
+              <div className="flex  w-[85px] md:w-[150px]">
+                <p>5,803</p>
               </div>
             </div>
           </div>
           <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
-            <div className="flex justify-between md:w-[80%] lg:w-[70%] font-base text-xs sm:text-sm">
-              <div className="flex w-24 ">
+            <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-[85px] md:w-[90px] ">
                 <p>Germany</p>
               </div>
-              <div className="flex w-24 pl-1 ">
-                <p>704</p>
+              <div className="flex w-[85px] md:w-[150px] ">
+                <p>704,000</p>
               </div>
-              <div className="flex w-24  pl-6">
-                <p>6,500</p>
+              <div className="flex   w-[85px] md:w-[105px]">
+                <p>591</p>
               </div>
-              <div className="flex w-24  pl-3">
-                <p>700</p>
+              <div className="flex  w-[85px] md:w-[150px]">
+                <p>803,905</p>
               </div>
             </div>
           </div>
           <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
-            <div className="flex justify-between md:w-[80%] lg:w-[70%] font-base text-xs sm:text-sm">
-              <div className="flex w-24 ">
+            <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-[85px] md:w-[90px] ">
                 <p>Georgia</p>
               </div>
-              <div className="flex w-24 pl-1 ">
-                <p>100,201</p>
+              <div className="flex w-[85px] md:w-[150px] ">
+                <p>4,000</p>
               </div>
-              <div className="flex w-24  pl-6">
-                <p>80</p>
+              <div className="flex   w-[85px] md:w-[105px]">
+                <p>91</p>
               </div>
-              <div className="flex w-24  pl-3">
-                <p>624,000</p>
+              <div className="flex  w-[85px] md:w-[150px]">
+                <p>-</p>
+              </div>
+            </div>
+          </div>
+          <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
+            <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-[85px] md:w-[90px] ">
+                <p>Japan</p>
+              </div>
+              <div className="flex w-[85px] md:w-[150px] ">
+                <p>4,000</p>
+              </div>
+              <div className="flex   w-[85px] md:w-[105px]">
+                <p>66</p>
+              </div>
+              <div className="flex  w-[85px] md:w-[150px]">
+                <p>5</p>
+              </div>
+            </div>
+          </div>
+          <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
+            <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-[85px] md:w-[90px] ">
+                <p>Korea</p>
+              </div>
+              <div className="flex w-[85px] md:w-[150px] ">
+                <p>10,704,000</p>
+              </div>
+              <div className="flex   w-[85px] md:w-[105px]">
+                <p>66,591,000</p>
+              </div>
+              <div className="flex  w-[85px] md:w-[150px]">
+                <p>9,704,000</p>
+              </div>
+            </div>
+          </div>
+          <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
+            <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
+              <div className="flex w-[85px] md:w-[90px] ">
+                <p>Armenia</p>
+              </div>
+              <div className="flex w-[85px] md:w-[150px] ">
+                <p>10,704</p>
+              </div>
+              <div className="flex   w-[85px] md:w-[105px]">
+                <p>591,000</p>
+              </div>
+              <div className="flex  w-[85px] md:w-[150px]">
+                <p>9,704,000</p>
               </div>
             </div>
           </div>
