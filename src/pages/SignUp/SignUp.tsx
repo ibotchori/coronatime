@@ -32,10 +32,10 @@ const SignUp = (props: Props) => {
           <form className=" max-w-[400px] pb-5">
             {/* Input */}
             <Input
-              title={t("signUpUsername")}
+              title={t("username")}
               type="text"
               id="username"
-              placeholder={t("signUpUsernamePlaceholder")}
+              placeholder={t("usernamePlaceholder")}
             />
             <Input
               title={t("signUpEmail")}

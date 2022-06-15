@@ -2,7 +2,7 @@
   "signUpTitle": "Welcome to Coronatime",
   "signUpSubTitle": "Please enter required info to sign up",
   "username": "Username",
-  "usernamePlaceholder": "Enter unique username or email",
+  "usernamePlaceholder": "Enter unique username",
   "signUpEmail": "Email",
   "signUpEmailPlaceholder": "Enter unique Email",
   "signUpPassword": "Password",
