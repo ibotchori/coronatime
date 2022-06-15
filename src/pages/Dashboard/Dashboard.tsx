@@ -3,10 +3,12 @@ import { LanguageToggle, MainLogo } from "components";
 import newCases from "assets/img/new-cases.png";
 import recovered from "assets/img/recovered.png";
 import death from "assets/img/death.png";
+import { useTranslation } from "react-i18next";
 
 type Props = {};
 
 const Dashboard = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <div className="w-full min-h-screen py-4">
       {/* Header */}
@@ -27,22 +29,24 @@ const Dashboard = (props: Props) => {
           <button className="sm:hidden flex pl-4 pt-1">&#9776;</button>
           <div className="pl-6 pt-1  h-8 hidden sm:flex">
             <p className="border-r-2 pr-2  font-bold ">Irakli Botchorishvili</p>
-            <button className="pl-2 pb-1">Log out</button>
+            <button className="pl-2 pb-1">{t("logOut")}</button>
           </div>
         </div>
       </div>
       {/* Toggle Buttons */}
       <div className=" px-4 sm:px-10 md:px-28">
-        <p className="font-bold text-2xl pt-12 pb-10">Worldwide Statistics</p>
+        <p className="font-bold text-2xl pt-12 pb-10">
+          {t("worldwideStatistics")}
+        </p>
         <div className="border-b-2 border-slate-50 pb-3 text-base flex ">
           <div className="w-[100px] sm:w-[130px]">
             <span className="hover:font-bold cursor-pointer hover:border-b-4 hover:border-black pb-3">
-              Worldwide
+              {t("worldwide")}
             </span>
           </div>
           <div>
             <span className="hover:font-bold cursor-pointer hover:border-b-4 hover:border-black pb-3">
-              By Country
+              {t("byCountry")}
             </span>
           </div>
         </div>
@@ -52,21 +56,21 @@ const Dashboard = (props: Props) => {
         <div className=" w-full md:w-[32%] h-[200px] sm:h-[300px] bg-blue-50 rounded-3xl flex flex-col justify-center items-center my-2">
           <img src={newCases} alt="" />
           <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
-            New cases
+            {t("newCases")}
           </p>
           <span className="font-extrabold text-[39px]">17,750</span>
         </div>
         <div className="w-full md:w-[32%] h-[200px] sm:h-[300px] bg-green-50 rounded-3xl flex flex-col justify-center items-center my-2">
           <img className="pt-6" src={recovered} alt="" />
           <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
-            Recovered
+            {t("recovered")}
           </p>
           <span className="font-extrabold text-[39px]">17,750</span>
         </div>
         <div className="w-full md:w-[32%] h-[200px] sm:h-[300px] bg-yellow-50 rounded-3xl flex flex-col justify-center items-center my-2">
           <img className="pt-3" src={death} alt="" />
           <p className="text-xl pt-4 sm:pt-8 pb-2 sm:pb-4 font-semibold">
-            Death
+            {t("death")}
           </p>
           <span className="font-extrabold text-[39px]">17,750</span>
         </div>
@@ -77,7 +81,7 @@ const Dashboard = (props: Props) => {
         <div className="sm:w-full h-16 py-5 px-2 sm:px-10 bg-slate-100 sm:rounded-tl-lg  sm:rounded-tr-lg  ">
           <div className="flex justify-between md:w-[80%] lg:w-[70%] font-semibold text-sm">
             <div className="flex cursor-pointer">
-              <p>Location</p>
+              <p>{t("location")}</p>
               <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
                 <svg
                   width="10"
@@ -100,7 +104,7 @@ const Dashboard = (props: Props) => {
               </div>
             </div>
             <div className="flex cursor-pointer">
-              <p>New cases</p>
+              <p>{t("newCases")}</p>
               <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
                 <svg
                   width="10"
@@ -123,7 +127,7 @@ const Dashboard = (props: Props) => {
               </div>
             </div>
             <div className="flex cursor-pointer">
-              <p>Death</p>
+              <p>{t("death")}</p>
               <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
                 <svg
                   width="10"
@@ -146,7 +150,7 @@ const Dashboard = (props: Props) => {
               </div>
             </div>
             <div className="flex cursor-pointer">
-              <p>Recovered</p>
+              <p>{t("recovered")}</p>
               <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
                 <svg
                   width="10"
