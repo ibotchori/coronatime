@@ -1,4 +1,8 @@
 import React, { FC } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { LoginInputTypes, LoginSchema } from "Helpers/FormSchema/LoginSchema";
+import { useTranslation } from "react-i18next";
 import {
   Button,
   CoverImage,
@@ -9,12 +13,21 @@ import {
   HaveAccount,
   LanguageToggle,
 } from "components/";
-import { useTranslation } from "react-i18next";
 
 type Props = {};
 
 const Login: FC = (props: Props) => {
   const { t } = useTranslation();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginInputTypes>({
+    resolver: yupResolver(LoginSchema),
+  });
+  const onSubmit = (data: LoginInputTypes) => {
+    console.log(data);
+  };
 
   return (
     <div className="w-full h-full flex">
@@ -29,19 +42,28 @@ const Login: FC = (props: Props) => {
           </div>
           {/* Title */}
           <Title mainText={t("logInTitle")} paragraph={t("logInSubTitle")} />
-          <form className=" max-w-[400px] pb-5">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className=" max-w-[400px] pb-5"
+          >
             {/* Input */}
             <Input
               title={t("logInUsername")}
               type="text"
               id="username"
               placeholder={t("logInUsernamePlaceholder")}
+              register={register}
+              name="userName"
+              errorMessage={errors.userName?.message}
             />
             <Input
               title={t("logInPassword")}
-              type="text"
+              type="password"
               id="password"
               placeholder={t("logInPasswordPlaceholder")}
+              register={register}
+              name="password"
+              errorMessage={errors.password?.message}
             />
             {/* Checkbox */}
             <Checkbox label={t("logInRemember")} anchor={t("logInForgot")} />
