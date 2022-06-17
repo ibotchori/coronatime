@@ -21,13 +21,18 @@ const Login: FC = (props: Props) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, dirtyFields },
   } = useForm<LoginInputTypes>({
+    mode: "onChange",
+    reValidateMode: "onChange",
     resolver: yupResolver(LoginSchema),
   });
+
   const onSubmit = (data: LoginInputTypes) => {
     console.log(data);
   };
+
+  console.log("🚀 ~ dirtyFields", dirtyFields.userName);
 
   return (
     <div className="w-full h-full flex">
@@ -55,6 +60,7 @@ const Login: FC = (props: Props) => {
               register={register}
               name="userName"
               errorMessage={errors.userName?.message}
+              dirtyFields={dirtyFields.userName}
             />
             <Input
               title={t("logInPassword")}
@@ -64,6 +70,7 @@ const Login: FC = (props: Props) => {
               register={register}
               name="password"
               errorMessage={errors.password?.message}
+              dirtyFields={dirtyFields.password}
             />
             {/* Checkbox */}
             <Checkbox label={t("logInRemember")} anchor={t("logInForgot")} />

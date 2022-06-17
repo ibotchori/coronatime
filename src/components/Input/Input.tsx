@@ -8,6 +8,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
   name?: string;
   register?: any;
+  dirtyFields?: any;
 }
 
 const Input: React.FC<Props> = ({
@@ -18,6 +19,7 @@ const Input: React.FC<Props> = ({
   errorMessage,
   register,
   name,
+  dirtyFields,
 }) => {
   return (
     <div className="mb-6">
@@ -30,15 +32,22 @@ const Input: React.FC<Props> = ({
       <input
         type={type}
         id={id}
-        className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-4 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        className={`bg-gray-50 text-gray-900 text-sm rounded-lg border-gray-300 focus:outline-none focus:border-blue-300 focus:ring-1 focus:ring-blue-300  block w-full p-4 border  ${
+          errorMessage
+            ? "border-red-400"
+            : dirtyFields && !errorMessage
+            ? "border-green-400"
+            : " "
+        } `}
         placeholder={placeholder}
         {...register(name)}
       />
       {errorMessage && (
         <div className="h-[0.1px] flex text-[10px] sm:text-xs ">
           <svg
-            width="18"
-            height="18"
+            className="mt-1"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +57,7 @@ const Input: React.FC<Props> = ({
               fill="#CC1E1E"
             />
           </svg>
-          <p className="pt-0.5 sm:pt-0 pl-2 text-red-600">{errorMessage}</p>
+          <p className="pt-[6px] pl-1 text-red-600">{errorMessage}</p>
         </div>
       )}
     </div>

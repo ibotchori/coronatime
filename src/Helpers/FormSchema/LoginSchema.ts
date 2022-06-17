@@ -2,7 +2,7 @@ import * as yup from "yup";
 
 export interface LoginInputTypes {
   userName: string;
-  password: number;
+  password: string;
 }
 
 export const LoginSchema = yup
