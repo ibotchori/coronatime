@@ -8,7 +8,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
   name?: string;
   register?: any;
-  dirtyFields?: any;
+  dirtyFields?: boolean;
 }
 
 const Input: React.FC<Props> = ({
