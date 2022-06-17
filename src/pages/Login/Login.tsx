@@ -53,7 +53,7 @@ const Login: FC = (props: Props) => {
           >
             {/* Input */}
             <Input
-              title={t("logInUsername")}
+              title={t("username")}
               type="text"
               id="username"
               placeholder={t("logInUsernamePlaceholder")}
@@ -63,21 +63,21 @@ const Login: FC = (props: Props) => {
               dirtyFields={dirtyFields.userName}
             />
             <Input
-              title={t("logInPassword")}
+              title={t("password")}
               type="password"
               id="password"
-              placeholder={t("logInPasswordPlaceholder")}
+              placeholder={t("passwordPlaceholder")}
               register={register}
               name="password"
               errorMessage={errors.password?.message}
               dirtyFields={dirtyFields.password}
             />
             {/* Checkbox */}
-            <Checkbox label={t("logInRemember")} anchor={t("logInForgot")} />
+            <Checkbox label={t("remember")} anchor={t("forgot")} />
             {/* Button */}
             <Button title={t("logIn")} />
             {/* Have Account */}
-            <HaveAccount title={t("logInAccount")} anchor={t("logInSignUp")} />
+            <HaveAccount title={t("haveAccount")} anchor={t("signUpFree")} />
           </form>
         </div>
       </div>
