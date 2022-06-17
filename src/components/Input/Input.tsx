@@ -48,7 +48,7 @@ const Input: React.FC<Props> = ({
         <input
           type={type}
           id={id}
-          className={`bg-gray-50 text-gray-900 text-sm rounded-lg border-gray-300 focus:outline-none focus:border-blue-300 focus:ring-1 focus:ring-blue-300  block w-full p-4 border  ${
+          className={`bg-gray-50 text-gray-900 text-sm rounded-lg border-gray-300 focus:outline-none focus:border-blue-300 focus:ring-1 focus:ring-blue-300  block w-full p-4 border placeholder:text-xs sm:placeholder:text-sm ${
             errorMessage
               ? "border-red-400"
               : dirtyFields && !errorMessage
