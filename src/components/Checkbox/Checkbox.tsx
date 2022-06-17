@@ -7,7 +7,7 @@ type Props = {
 
 function Checkbox({ label, anchor }: Props) {
   return (
-    <div className="flex justify-between mb-6">
+    <div className="flex justify-between mb-6 pt-1">
       <div className="flex ">
         <div className="flex items-center h-5">
           <input
