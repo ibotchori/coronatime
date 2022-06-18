@@ -32,12 +32,10 @@ const Login: FC = (props: Props) => {
     console.log(data);
   };
 
-  console.log("🚀 ~ dirtyFields", dirtyFields.userName);
-
   return (
     <div className="w-full h-full flex">
-      <div className="w-full sm:w-[55%] flex  h-screen overflow-hidden overflow-y-scroll">
-        <div className=" w-full pl-5 md:pl-16 lg:pl-28 pt-7 pr-5 first-line:">
+      <div className="w-full sm:w-[55%] flex h-screen overflow-hidden ">
+        <div className="w-full pl-5 md:pl-16 lg:pl-28 pt-7 pr-5">
           {/* Logo & language */}
           <div className="flex justify-between">
             <MainLogo />
