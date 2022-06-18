@@ -39,12 +39,12 @@ const SignUp = (props: Props) => {
 
   return (
     <div className="w-full h-full flex">
-      <div className="w-full sm:w-[55%] flex overflow-hidden overflow-y-scroll h-screen">
-        <div className=" w-full pl-5 md:pl-16 lg:pl-28 pt-7 pr-5 ">
+      <div className="w-full sm:w-[55%] flex overflow-hidden overflow-y-visible h-screen">
+        <div className=" w-full pl-5 md:pl-16 lg:pl-36 pt-7 pr-5 ">
           {/* Logo & language */}
-          <div className="flex justify-between">
+          <div className="flex justify-between pt-8 pb-5">
             <MainLogo />
-            <div>
+            <div className="md:pr-16">
               <LanguageToggle />
             </div>
           </div>
@@ -52,7 +52,7 @@ const SignUp = (props: Props) => {
           <Title mainText={t("signUpTitle")} paragraph={t("signUpSubTitle")} />
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className=" max-w-[400px] pb-5"
+            className=" max-w-[400px] pb-5 pt-1"
           >
             {/* Input */}
             <Input

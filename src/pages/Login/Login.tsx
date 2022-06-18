@@ -35,11 +35,11 @@ const Login: FC = (props: Props) => {
   return (
     <div className="w-full h-full flex">
       <div className="w-full sm:w-[55%] flex h-screen overflow-hidden ">
-        <div className="w-full pl-5 md:pl-16 lg:pl-28 pt-7 pr-5">
+        <div className="w-full pl-5 md:pl-16 lg:pl-36 pt-7 pr-5">
           {/* Logo & language */}
-          <div className="flex justify-between">
+          <div className="flex justify-between pt-8 pb-5">
             <MainLogo />
-            <div>
+            <div className="md:pr-16">
               <LanguageToggle />
             </div>
           </div>
@@ -47,7 +47,7 @@ const Login: FC = (props: Props) => {
           <Title mainText={t("logInTitle")} paragraph={t("logInSubTitle")} />
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className=" max-w-[400px] pb-5"
+            className=" max-w-[400px] pt-1 pb-5"
           >
             {/* Input */}
             <Input

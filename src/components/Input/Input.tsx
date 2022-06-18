@@ -27,7 +27,7 @@ const Input: React.FC<Props> = ({
     <div className="mb-6">
       <label
         htmlFor={title}
-        className="block mb-2 text-md font-bold text-gray-900 dark:text-gray-300"
+        className="block mb-2 text-base font-bold text-gray-900 dark:text-gray-300"
       >
         {title}
       </label>
