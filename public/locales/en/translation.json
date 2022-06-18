@@ -47,5 +47,8 @@
   "usernameMax": "Username should be maximum 12 characters",
   "passwordRequired": "Password should be required",
   "passwordAtLeast": "Password should be at least 3 characters",
-  "passwordMax": "Password should be maximum 12 characters"
+  "passwordMax": "Password should be maximum 12 characters",
+  "emailRequired": "Email should be required please",
+  "emailMustValid": "Email must be a valid email",
+  "passwordMatch": "Passwords must match!"
   }

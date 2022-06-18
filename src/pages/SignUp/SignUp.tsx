@@ -1,4 +1,11 @@
 import React, { FC } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import {
+  SignUpSchema,
+  SignUpInputTypes,
+} from "Helpers/FormSchema/SignUpSchema";
+
 import {
   Button,
   CoverImage,
@@ -16,6 +23,20 @@ type Props = {};
 const SignUp = (props: Props) => {
   const { t } = useTranslation();
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, dirtyFields },
+  } = useForm<SignUpInputTypes>({
+    mode: "onChange",
+    reValidateMode: "onChange",
+    resolver: yupResolver(SignUpSchema),
+  });
+
+  const onSubmit = (data: SignUpInputTypes) => {
+    console.log(data);
+  };
+
   return (
     <div className="w-full h-full flex">
       <div className="w-full sm:w-[55%] flex overflow-hidden overflow-y-scroll h-screen">
@@ -29,31 +50,50 @@ const SignUp = (props: Props) => {
           </div>
           {/* Title */}
           <Title mainText={t("signUpTitle")} paragraph={t("signUpSubTitle")} />
-          <form className=" max-w-[400px] pb-5">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className=" max-w-[400px] pb-5"
+          >
             {/* Input */}
             <Input
               title={t("username")}
               type="text"
               id="username"
               placeholder={t("usernamePlaceholder")}
+              register={register}
+              name="userName"
+              errorMessage={errors.userName?.message}
+              dirtyFields={dirtyFields.userName}
             />
             <Input
               title={t("signUpEmail")}
               type="email"
               id="email"
               placeholder={t("signUpEmailPlaceholder")}
+              register={register}
+              name="email"
+              errorMessage={errors.email?.message}
+              dirtyFields={dirtyFields.email}
             />
             <Input
               title={t("signUpPassword")}
-              type="text"
+              type="password"
               id="password"
               placeholder={t("signUpPasswordPlaceholder")}
+              register={register}
+              name="password"
+              errorMessage={errors.password?.message}
+              dirtyFields={dirtyFields.password}
             />
             <Input
               title={t("signUpRepeatPassword")}
-              type="text"
-              id="password"
+              type="password"
+              id="confirmPassword"
               placeholder={t("signUpRepeatPasswordPlaceholder")}
+              register={register}
+              name="confirmPassword"
+              errorMessage={errors.confirmPassword?.message}
+              dirtyFields={dirtyFields.confirmPassword}
             />
             {/* Checkbox */}
             <Checkbox label={t("signUpRemember")} anchor="" />
