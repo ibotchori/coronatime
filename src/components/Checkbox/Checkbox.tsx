@@ -7,8 +7,8 @@ type Props = {
 
 function Checkbox({ label, anchor }: Props) {
   return (
-    <div className="flex justify-between mb-6 pt-1">
-      <div className="flex ">
+    <div className="flex justify-between mb-6 pt-1 text-sm font-bold">
+      <div className="flex items-center justify-center ">
         <div className="flex items-center h-5">
           <input
             id="remember"
@@ -19,13 +19,13 @@ function Checkbox({ label, anchor }: Props) {
         </div>
         <label
           htmlFor="remember"
-          className="ml-2 text-sm font-bold text-gray-900 dark:text-gray-300"
+          className="ml-2 text-gray-900 dark:text-gray-300"
         >
           {label}
         </label>
       </div>
       {anchor && (
-        <a className="text-sm font-bold text-blue-600" href="">
+        <a className="text-blue-600" href="">
           {anchor}
         </a>
       )}

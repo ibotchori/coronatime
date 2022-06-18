@@ -42,7 +42,7 @@ const SignUp = (props: Props) => {
       <div className="w-full sm:w-[55%] flex overflow-hidden overflow-y-visible h-screen">
         <div className=" w-full pl-5 md:pl-16 lg:pl-36 pt-7 pr-5 ">
           {/* Logo & language */}
-          <div className="flex justify-between pt-8 pb-5">
+          <div className="flex justify-between md:pt-8 md:pb-5">
             <MainLogo />
             <div className="md:pr-16">
               <LanguageToggle />
