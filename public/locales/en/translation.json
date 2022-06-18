@@ -41,5 +41,11 @@
   "newCases": "New cases",
   "recovered": "Recovered",
   "death": "Death",
-  "location": "Location"
+  "location": "Location",
+  "usernameRequired": "Username should be required",
+  "usernameAtLeast": "Username should be at least 3 characters",
+  "usernameMax": "Username should be maximum 12 characters",
+  "passwordRequired": "Password should be required",
+  "passwordAtLeast": "Password should be at least 3 characters",
+  "passwordMax": "Password should be maximum 12 characters"
   }

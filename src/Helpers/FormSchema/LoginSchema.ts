@@ -9,13 +9,13 @@ export const LoginSchema = yup
   .object({
     userName: yup
       .string()
-      .required("მომხმარებელი სავალდებულოა")
-      .min(3, "სახელი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან.")
-      .max(20, "სახელი არ უნდა აღემატებოდეს 20 სიმბოლოს."),
+      .required("usernameRequired")
+      .min(3, "usernameAtLeast")
+      .max(20, "usernameMax"),
     password: yup
       .string()
-      .required("პაროლი სავალდებულოა")
-      .min(3, "პაროლი უნდა შედგებოდეს მინიმუმ 3 სიმბოლოსგან.")
-      .max(20, "პაროლი არ უნდა აღემატებოდეს 20 სიმბოლოს."),
+      .required("passwordRequired")
+      .min(3, "passwordAtLeast")
+      .max(20, "passwordMax"),
   })
   .required();

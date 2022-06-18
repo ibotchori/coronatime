@@ -1,4 +1,5 @@
 import React, { DetailedHTMLProps, InputHTMLAttributes } from "react";
+import { useTranslation } from "react-i18next";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   title?: string;
@@ -21,6 +22,7 @@ const Input: React.FC<Props> = ({
   name,
   dirtyFields,
 }) => {
+  const { t } = useTranslation();
   return (
     <div className="mb-6">
       <label
@@ -75,7 +77,7 @@ const Input: React.FC<Props> = ({
               fill="#CC1E1E"
             />
           </svg>
-          <p className="pt-[6px] pl-1 text-red-600">{errorMessage}</p>
+          <p className="pt-[6px] pl-1 text-red-600">{t(errorMessage)}</p>
         </div>
       )}
     </div>
