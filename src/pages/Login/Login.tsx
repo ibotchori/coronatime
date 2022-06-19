@@ -75,7 +75,11 @@ const Login: FC = (props: Props) => {
             {/* Button */}
             <Button title={t("logIn")} />
             {/* Have Account */}
-            <HaveAccount title={t("haveAccount")} anchor={t("signUpFree")} />
+            <HaveAccount
+              title={t("haveAccount")}
+              anchor={t("signUpFree")}
+              pathToNavigate="/sign-up"
+            />
           </form>
         </div>
       </div>

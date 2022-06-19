@@ -1,12 +1,14 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 type Props = {
   title?: string;
   anchor?: string;
+  pathToNavigate?: string;
 };
 
-const HaveAccount = (props: Props) => {
+const HaveAccount: React.FC<Props> = ({ title, anchor, pathToNavigate }) => {
   const { i18n } = useTranslation();
   return (
     <div
@@ -18,12 +20,12 @@ const HaveAccount = (props: Props) => {
     >
       <div className="flex ">
         <p className="ml-2 font-normal  text-gray-900 dark:text-gray-300 pr-2">
-          {props.title}
+          {title}
         </p>
       </div>
-      <a className="font-bold text-grey-600" href="">
-        {props.anchor}
-      </a>
+      <Link to={pathToNavigate as string} className="font-bold text-grey-600">
+        {anchor}
+      </Link>
     </div>
   );
 };

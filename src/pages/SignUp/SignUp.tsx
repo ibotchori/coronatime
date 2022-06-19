@@ -100,7 +100,11 @@ const SignUp = (props: Props) => {
             {/* Button */}
             <Button title={t("signUp")} />
             {/* Have Account */}
-            <HaveAccount title={t("signUpAccount")} anchor={t("signUpLogIn")} />
+            <HaveAccount
+              title={t("signUpAccount")}
+              anchor={t("signUpLogIn")}
+              pathToNavigate="/"
+            />
           </form>
         </div>
       </div>
