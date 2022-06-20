@@ -70,7 +70,10 @@ const SignUp = (props: Props) => {
       console.log(err);
       setUsernameError(false);
       setEmailError(false);
-      if (err.response.data[0].context.label === "username") {
+      if (err.message === "Network Error") {
+        alert("Something went wrong, try again later");
+        reset();
+      } else if (err.response.data[0].context.label === "username") {
         setUsernameError(true);
       } else {
         setEmailError(true);
