@@ -1,15 +1,15 @@
 import * as yup from "yup";
 
 export interface SignUpInputTypes {
-  userName: string;
+  username: string;
   email: string;
   password: string;
-  confirmPassword: string;
+  repeatPassword: string;
 }
 
 export const SignUpSchema = yup
   .object({
-    userName: yup
+    username: yup
       .string()
       .required("usernameRequired")
       .min(3, "usernameAtLeast")
@@ -20,6 +20,6 @@ export const SignUpSchema = yup
       .required("passwordRequired")
       .min(3, "passwordAtLeast")
       .max(20, "passwordMax"),
-    confirmPassword: yup.string().oneOf([yup.ref("password")], "passwordMatch"),
+    repeatPassword: yup.string().oneOf([yup.ref("password")], "passwordMatch"),
   })
   .required();

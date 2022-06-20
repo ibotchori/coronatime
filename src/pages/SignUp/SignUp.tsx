@@ -61,9 +61,9 @@ const SignUp = (props: Props) => {
               id="username"
               placeholder={t("usernamePlaceholder")}
               register={register}
-              name="userName"
-              errorMessage={errors.userName?.message}
-              dirtyFields={dirtyFields.userName}
+              name="username"
+              errorMessage={errors.username?.message}
+              dirtyFields={dirtyFields.username}
             />
             <Input
               title={t("signUpEmail")}
@@ -88,12 +88,12 @@ const SignUp = (props: Props) => {
             <Input
               title={t("signUpRepeatPassword")}
               type="password"
-              id="confirmPassword"
+              id="repeatPassword"
               placeholder={t("signUpRepeatPasswordPlaceholder")}
               register={register}
-              name="confirmPassword"
-              errorMessage={errors.confirmPassword?.message}
-              dirtyFields={dirtyFields.confirmPassword}
+              name="repeatPassword"
+              errorMessage={errors.repeatPassword?.message}
+              dirtyFields={dirtyFields.repeatPassword}
             />
             {/* Checkbox */}
             <Checkbox label={t("signUpRemember")} anchor="" />
