@@ -113,10 +113,10 @@ const SignUp = (props: Props) => {
               dirtyFields={dirtyFields.username}
             />
             <Input
-              title={t("signUpEmail")}
+              title={t("email")}
               type="email"
               id="email"
-              placeholder={t("signUpEmailPlaceholder")}
+              placeholder={t("uniqEmail")}
               register={register}
               name="email"
               errorMessage={
@@ -129,33 +129,33 @@ const SignUp = (props: Props) => {
               dirtyFields={dirtyFields.email}
             />
             <Input
-              title={t("signUpPassword")}
+              title={t("password")}
               type="password"
               id="password"
-              placeholder={t("signUpPasswordPlaceholder")}
+              placeholder={t("passwordPlaceholder")}
               register={register}
               name="password"
               errorMessage={errors.password?.message}
               dirtyFields={dirtyFields.password}
             />
             <Input
-              title={t("signUpRepeatPassword")}
+              title={t("repeatPassword")}
               type="password"
               id="repeatPassword"
-              placeholder={t("signUpRepeatPasswordPlaceholder")}
+              placeholder={t("repeatPassword")}
               register={register}
               name="repeatPassword"
               errorMessage={errors.repeatPassword?.message}
               dirtyFields={dirtyFields.repeatPassword}
             />
             {/* Checkbox */}
-            <Checkbox label={t("signUpRemember")} anchor="" />
+            <Checkbox label={t("remember")} anchor="" />
             {/* Button */}
             <Button title={t("signUp")} />
             {/* Have Account */}
             <HaveAccount
-              title={t("signUpAccount")}
-              anchor={t("signUpLogIn")}
+              title={t("alreadyHaveAccount")}
+              anchor={t("logIn")}
               pathToNavigate="/"
             />
           </form>
