@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import {
@@ -17,15 +17,23 @@ import {
   LanguageToggle,
 } from "components/";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const SignUp = (props: Props) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const [usernameErrorFromAPI, setUsernameError] = useState(false);
+  const [emailErrorFromAPI, setEmailError] = useState(false);
 
   const {
     register,
     handleSubmit,
+    reset,
+    watch,
     formState: { errors, dirtyFields },
   } = useForm<SignUpInputTypes>({
     mode: "onChange",
@@ -33,8 +41,41 @@ const SignUp = (props: Props) => {
     resolver: yupResolver(SignUpSchema),
   });
 
-  const onSubmit = (data: SignUpInputTypes) => {
-    console.log(data);
+  // hide errors from API when inputs changes
+  useEffect(() => {
+    setUsernameError(false);
+  }, [watch("username")]);
+  useEffect(() => {
+    setEmailError(false);
+  }, [watch("email")]);
+
+  const onSubmit = async (data: SignUpInputTypes) => {
+    // add redirect property to data
+    data["redirectOnConfirm"] = "http://localhost:3000/email-confirmation";
+
+    try {
+      await axios({
+        method: "POST",
+        url: `https://coronatime-api.devtest.ge/api/register`,
+        data: data,
+      });
+
+      setUsernameError(false);
+      setEmailError(false);
+      reset();
+      navigate("/email-confirmation");
+      console.log(data);
+    } catch (err: any) {
+      // Handle Error Here
+      console.log(err);
+      setUsernameError(false);
+      setEmailError(false);
+      if (err.response.data[0].context.label === "username") {
+        setUsernameError(true);
+      } else {
+        setEmailError(true);
+      }
+    }
   };
 
   return (
@@ -62,7 +103,13 @@ const SignUp = (props: Props) => {
               placeholder={t("usernamePlaceholder")}
               register={register}
               name="username"
-              errorMessage={errors.username?.message}
+              errorMessage={
+                errors.username?.message
+                  ? errors.username?.message
+                  : usernameErrorFromAPI
+                  ? t("usernameIsTaken")
+                  : ""
+              }
               dirtyFields={dirtyFields.username}
             />
             <Input
@@ -72,7 +119,13 @@ const SignUp = (props: Props) => {
               placeholder={t("signUpEmailPlaceholder")}
               register={register}
               name="email"
-              errorMessage={errors.email?.message}
+              errorMessage={
+                errors.email?.message
+                  ? errors.email?.message
+                  : emailErrorFromAPI
+                  ? t("emailIsTaken")
+                  : ""
+              }
               dirtyFields={dirtyFields.email}
             />
             <Input

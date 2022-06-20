@@ -50,5 +50,7 @@
   "passwordMax": "Password should be maximum 12 characters",
   "emailRequired": "Email should be required please",
   "emailMustValid": "Email must be a valid email",
-  "passwordMatch": "Passwords must match!"
+  "passwordMatch": "Passwords must match!",
+  "usernameIsTaken": "This username is already taken",
+  "emailIsTaken": "This email is already taken"
   }

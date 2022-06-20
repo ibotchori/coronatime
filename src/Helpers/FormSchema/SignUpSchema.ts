@@ -5,6 +5,7 @@ export interface SignUpInputTypes {
   email: string;
   password: string;
   repeatPassword: string;
+  redirectOnConfirm: string;
 }
 
 export const SignUpSchema = yup
