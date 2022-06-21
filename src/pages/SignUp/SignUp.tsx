@@ -26,9 +26,10 @@ const SignUp = (props: Props) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
-  const [usernameErrorFromAPI, setUsernameError] = useState(false);
-  const [emailErrorFromAPI, setEmailError] = useState(false);
+  const [usernameErrorFromAPI, setUsernameErrorFromAPI] = useState(false);
+  const [emailErrorFromAPI, setEmailErrorFromAPI] = useState(false);
 
+  // useForm
   const {
     register,
     handleSubmit,
@@ -43,10 +44,10 @@ const SignUp = (props: Props) => {
 
   // hide errors from API when inputs changes
   useEffect(() => {
-    setUsernameError(false);
+    setUsernameErrorFromAPI(false);
   }, [watch("username")]);
   useEffect(() => {
-    setEmailError(false);
+    setEmailErrorFromAPI(false);
   }, [watch("email")]);
 
   const onSubmit = async (data: SignUpInputTypes) => {
@@ -60,23 +61,23 @@ const SignUp = (props: Props) => {
         data: data,
       });
 
-      setUsernameError(false);
-      setEmailError(false);
+      setUsernameErrorFromAPI(false);
+      setEmailErrorFromAPI(false);
       reset();
       navigate("/email-confirmation");
       console.log(data);
     } catch (err: any) {
       // Handle Error Here
       console.log(err);
-      setUsernameError(false);
-      setEmailError(false);
+      setUsernameErrorFromAPI(false);
+      setEmailErrorFromAPI(false);
       if (err.message === "Network Error") {
         alert("Something went wrong, try again later");
         reset();
       } else if (err.response.data[0].context.label === "username") {
-        setUsernameError(true);
+        setUsernameErrorFromAPI(true);
       } else {
-        setEmailError(true);
+        setEmailErrorFromAPI(true);
       }
     }
   };
