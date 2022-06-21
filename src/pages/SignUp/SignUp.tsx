@@ -119,7 +119,7 @@ const SignUp = (props: Props) => {
               title={t("email")}
               type="email"
               id="email"
-              placeholder={t("uniqEmail")}
+              placeholder={t("emailPlaceholder")}
               register={register}
               name="email"
               errorMessage={
