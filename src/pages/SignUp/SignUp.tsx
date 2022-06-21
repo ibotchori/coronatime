@@ -51,7 +51,7 @@ const SignUp = (props: Props) => {
 
   const onSubmit = async (data: SignUpInputTypes) => {
     // add redirect property to data
-    data["redirectOnConfirm"] = "http://localhost:3000/email-confirmation";
+    data["redirectOnConfirm"] = "http://localhost:3000/account-confirmation";
 
     try {
       await axios({
