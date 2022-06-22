@@ -38,14 +38,18 @@ const Login: FC = (props: Props) => {
   });
 
   const onSubmit = async (data: LoginInputTypes) => {
+    const dataForSubmit = data;
+
     try {
       const result = await axios({
         method: "POST",
         url: `https://coronatime-api.devtest.ge/api/login`,
-        data: data,
+        data: dataForSubmit,
       });
-      // save token to local storage
+      // save token and username to local storage
       localStorage.setItem("token", JSON.stringify(result.data.token));
+      localStorage.setItem("username", JSON.stringify(data.username));
+
       setUsernameErrorFromAPI(false);
       setPasswordErrorFromAPI(false);
       reset();
