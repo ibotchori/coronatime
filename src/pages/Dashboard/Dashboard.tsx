@@ -4,6 +4,7 @@ import newCases from "assets/img/new-cases.png";
 import recovered from "assets/img/recovered.png";
 import death from "assets/img/death.png";
 import { useTranslation } from "react-i18next";
+import Search from "./components/Search";
 
 type Props = {};
 
@@ -99,7 +100,8 @@ const Dashboard = (props: Props) => {
       ) : (
         <>
           {/* By country Content */}
-          <div className="sm:border-2 border-slate-100  sm:rounded-xl my-6 px-0 sm:mx-10 md:mx-28  ">
+          <Search />
+          <div className="sm:border-2 border-slate-100  sm:rounded-xl sm:my-6 px-0 sm:mx-10 md:mx-28  ">
             {/* Table header */}
             <div className="sm:w-full h-16 py-5 px-2 sm:px-10 bg-slate-100 sm:rounded-tl-lg overflow-hidden  sm:rounded-tr-lg  ">
               <div className="flex justify-between md:w-[95%] lg:w-[70%] font-semibold text-sm">
