@@ -1,19 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LanguageToggle, MainLogo } from "components";
 import newCases from "assets/img/new-cases.png";
 import recovered from "assets/img/recovered.png";
 import death from "assets/img/death.png";
 import { useTranslation } from "react-i18next";
 import Search from "./components/Search";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const Dashboard = (props: Props) => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
-  // get username form local storage
+  // get username from local storage
   const username: any = localStorage.getItem("username");
 
   const [showContent, setShowContent] = useState(false);
+
+  // get token from local storage
+  const token: any = localStorage.getItem("token");
+  useEffect(() => {
+    if (!token) {
+      navigate("/");
+    }
+  }, []);
+
+  const logOutHandler = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    navigate("/");
+  };
+
   return (
     <div className="w-full min-h-screen py-4">
       {/* Header */}
@@ -32,7 +49,10 @@ const Dashboard = (props: Props) => {
             <LanguageToggle />
           </div>
           <button className="sm:hidden flex pl-4 pt-1">&#9776;</button>
-          <div className="pl-6 pt-1  h-8 hidden sm:flex">
+          <div
+            onClick={logOutHandler}
+            className="pl-6 pt-1  h-8 hidden sm:flex"
+          >
             <p className="border-r-2 pr-2  font-bold ">
               {JSON.parse(username)}
             </p>

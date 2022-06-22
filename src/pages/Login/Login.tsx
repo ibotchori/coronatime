@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginInputTypes, LoginSchema } from "Helpers/FormSchema/LoginSchema";
@@ -19,6 +19,13 @@ import { useNavigate } from "react-router-dom";
 type Props = {};
 
 const Login: FC = (props: Props) => {
+  // get token from local storage
+  const token: any = localStorage.getItem("token");
+  useEffect(() => {
+    if (token) {
+      navigate("/dashboard");
+    }
+  }, []);
   const { t } = useTranslation();
   const navigate = useNavigate();
 
