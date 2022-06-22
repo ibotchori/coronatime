@@ -44,7 +44,8 @@ const Login: FC = (props: Props) => {
         url: `https://coronatime-api.devtest.ge/api/login`,
         data: data,
       });
-
+      // save token to local storage
+      localStorage.setItem("token", JSON.stringify(result.data.token));
       setUsernameErrorFromAPI(false);
       setPasswordErrorFromAPI(false);
       reset();
