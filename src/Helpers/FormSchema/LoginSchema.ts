@@ -1,13 +1,13 @@
 import * as yup from "yup";
 
 export interface LoginInputTypes {
-  userName: string;
+  username: string;
   password: string;
 }
 
 export const LoginSchema = yup
   .object({
-    userName: yup
+    username: yup
       .string()
       .required("usernameRequired")
       .min(3, "usernameAtLeast")

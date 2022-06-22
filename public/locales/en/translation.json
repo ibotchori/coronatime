@@ -45,5 +45,7 @@
   "emailMustValid": "Email must be a valid email",
   "passwordMatch": "Passwords must match!",
   "usernameIsTaken": "This username is already taken",
-  "emailIsTaken": "This email is already taken"
+  "emailIsTaken": "This email is already taken",
+  "noUser": "There is no user with this username",
+  "credentials": "Please, provide correct credentials..."
   }

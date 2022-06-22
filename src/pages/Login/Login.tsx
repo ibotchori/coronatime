@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginInputTypes, LoginSchema } from "Helpers/FormSchema/LoginSchema";
@@ -13,14 +13,23 @@ import {
   HaveAccount,
   LanguageToggle,
 } from "components/";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const Login: FC = (props: Props) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const [usernameErrorFromAPI, setUsernameErrorFromAPI] = useState(false);
+  const [passwordErrorFromAPI, setPasswordErrorFromAPI] = useState(false);
+
+  // useForm
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, dirtyFields },
   } = useForm<LoginInputTypes>({
     mode: "onChange",
@@ -28,8 +37,33 @@ const Login: FC = (props: Props) => {
     resolver: yupResolver(LoginSchema),
   });
 
-  const onSubmit = (data: LoginInputTypes) => {
-    console.log(data);
+  const onSubmit = async (data: LoginInputTypes) => {
+    try {
+      const result = await axios({
+        method: "POST",
+        url: `https://coronatime-api.devtest.ge/api/login`,
+        data: data,
+      });
+
+      setUsernameErrorFromAPI(false);
+      setPasswordErrorFromAPI(false);
+      reset();
+      navigate("/dashboard");
+      console.log(result.data);
+    } catch (err: any) {
+      // Handle Error Here
+      console.log(err);
+      setUsernameErrorFromAPI(false);
+      setPasswordErrorFromAPI(false);
+      if (err.message === "Network Error") {
+        alert("Something went wrong, try again later");
+        reset();
+      } else if (err.response.statusText === "Unauthorized") {
+        setPasswordErrorFromAPI(true);
+      } else {
+        setUsernameErrorFromAPI(true);
+      }
+    }
   };
 
   return (
@@ -56,9 +90,17 @@ const Login: FC = (props: Props) => {
               id="username"
               placeholder={t("logInUsernamePlaceholder")}
               register={register}
-              name="userName"
-              errorMessage={errors.userName?.message}
-              dirtyFields={dirtyFields.userName}
+              name="username"
+              errorMessage={
+                errors.username?.message
+                  ? errors.username?.message
+                  : usernameErrorFromAPI
+                  ? t("noUser")
+                  : passwordErrorFromAPI
+                  ? t("credentials")
+                  : ""
+              }
+              dirtyFields={dirtyFields.username}
             />
             <Input
               title={t("password")}
