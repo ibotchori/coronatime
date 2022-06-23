@@ -6,23 +6,38 @@ import death from "assets/img/death.png";
 import { useTranslation } from "react-i18next";
 import Search from "./components/Search";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 type Props = {};
 
 const Dashboard = (props: Props) => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
-  // get username from local storage
-  const username: any = localStorage.getItem("username");
+  const { t, i18n } = useTranslation();
 
+  // get username and token from local storage
+  const username: any = localStorage.getItem("username");
+  const token: any = localStorage.getItem("token");
+
+  const [fetchedData, setFetchedData] = useState([]);
   const [showContent, setShowContent] = useState(false);
 
-  // get token from local storage
-  const token: any = localStorage.getItem("token");
   useEffect(() => {
     if (!token) {
       navigate("/");
     }
+
+    // API call
+    const API_URL = "https://coronatime-api.devtest.ge/api/countries";
+    const config = {
+      headers: {
+        Authorization: `Bearer ${JSON.parse(token)}`,
+      },
+    };
+    const getData = async () => {
+      const { data } = await axios.get(API_URL, config);
+      setFetchedData(data);
+    };
+    getData();
   }, []);
 
   const logOutHandler = () => {
@@ -237,118 +252,29 @@ const Dashboard = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
-                <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
-                  <div className="flex w-[85px] md:w-[90px] ">
-                    <p>USA</p>
-                  </div>
-                  <div className="flex w-[85px] md:w-[150px] ">
-                    <p>9,704</p>
-                  </div>
-                  <div className="flex   w-[85px] md:w-[105px]">
-                    <p>66,591</p>
-                  </div>
-                  <div className="flex  w-[85px] md:w-[150px]">
-                    <p>5</p>
-                  </div>
-                </div>
-              </div>
-              <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
-                <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
-                  <div className="flex w-[85px] md:w-[90px] ">
-                    <p>Costarica</p>
-                  </div>
-                  <div className="flex w-[85px] md:w-[150px] ">
-                    <p>9</p>
-                  </div>
-                  <div className="flex   w-[85px] md:w-[105px]">
-                    <p>66,591</p>
-                  </div>
-                  <div className="flex  w-[85px] md:w-[150px]">
-                    <p>5,803</p>
+              {fetchedData?.map((item: any) => (
+                <div
+                  key={item._id}
+                  className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 "
+                >
+                  <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
+                    <div className="flex w-[85px] md:w-[90px] ">
+                      <p>
+                        {i18n.language === "en" ? item.name.en : item.name.ka}
+                      </p>
+                    </div>
+                    <div className="flex w-[85px] md:w-[150px] ">
+                      <p>{item.statistics.confirmed}</p>
+                    </div>
+                    <div className="flex   w-[85px] md:w-[105px]">
+                      <p>{item.statistics.deaths}</p>
+                    </div>
+                    <div className="flex  w-[85px] md:w-[150px]">
+                      <p>{item.statistics.recovered}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
-                <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
-                  <div className="flex w-[85px] md:w-[90px] ">
-                    <p>Germany</p>
-                  </div>
-                  <div className="flex w-[85px] md:w-[150px] ">
-                    <p>704,000</p>
-                  </div>
-                  <div className="flex   w-[85px] md:w-[105px]">
-                    <p>591</p>
-                  </div>
-                  <div className="flex  w-[85px] md:w-[150px]">
-                    <p>803,905</p>
-                  </div>
-                </div>
-              </div>
-              <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
-                <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
-                  <div className="flex w-[85px] md:w-[90px] ">
-                    <p>Georgia</p>
-                  </div>
-                  <div className="flex w-[85px] md:w-[150px] ">
-                    <p>4,000</p>
-                  </div>
-                  <div className="flex   w-[85px] md:w-[105px]">
-                    <p>91</p>
-                  </div>
-                  <div className="flex  w-[85px] md:w-[150px]">
-                    <p>-</p>
-                  </div>
-                </div>
-              </div>
-              <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
-                <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
-                  <div className="flex w-[85px] md:w-[90px] ">
-                    <p>Japan</p>
-                  </div>
-                  <div className="flex w-[85px] md:w-[150px] ">
-                    <p>4,000</p>
-                  </div>
-                  <div className="flex   w-[85px] md:w-[105px]">
-                    <p>66</p>
-                  </div>
-                  <div className="flex  w-[85px] md:w-[150px]">
-                    <p>5</p>
-                  </div>
-                </div>
-              </div>
-              <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
-                <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
-                  <div className="flex w-[85px] md:w-[90px] ">
-                    <p>Korea</p>
-                  </div>
-                  <div className="flex w-[85px] md:w-[150px] ">
-                    <p>10,704,000</p>
-                  </div>
-                  <div className="flex   w-[85px] md:w-[105px]">
-                    <p>66,591,000</p>
-                  </div>
-                  <div className="flex  w-[85px] md:w-[150px]">
-                    <p>9,704,000</p>
-                  </div>
-                </div>
-              </div>
-              <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
-                <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
-                  <div className="flex w-[85px] md:w-[90px] ">
-                    <p>Armenia</p>
-                  </div>
-                  <div className="flex w-[85px] md:w-[150px] ">
-                    <p>10,704</p>
-                  </div>
-                  <div className="flex   w-[85px] md:w-[105px]">
-                    <p>591,000</p>
-                  </div>
-                  <div className="flex  w-[85px] md:w-[150px]">
-                    <p>9,704,000</p>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </>
