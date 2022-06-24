@@ -1,7 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-type Props = {};
+type Props = {
+  handleChange: any;
+};
 
 const Search = (props: Props) => {
   const { t } = useTranslation();
@@ -25,6 +27,7 @@ const Search = (props: Props) => {
           </svg>
         </div>
         <input
+          onChange={props.handleChange}
           type="search"
           id="search"
           className="block p-4 pl-10 w-full text-sm text-gray-900 sm:bg-gray-50 rounded-lg sm:border border-gray-300 sm:focus:border-gray-400 sm:focus:ring-1 sm:focus:ring-gray-400 focus:outline-none"

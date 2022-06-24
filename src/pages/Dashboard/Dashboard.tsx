@@ -18,8 +18,34 @@ const Dashboard = (props: Props) => {
   const username: any = localStorage.getItem("username");
   const token: any = localStorage.getItem("token");
 
-  const [fetchedData, setFetchedData] = useState([]);
-  const [showContent, setShowContent] = useState(false);
+  const [fetchedData, setFetchedData] = useState<object[]>([]);
+  const [showContent, setShowContent] = useState<boolean>(false);
+
+  /* Search functionality */
+  const [filteredData, setFilteredData] = useState<object[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+
+  useEffect(() => {
+    const newFilter: object[] = fetchedData.filter((value: any) => {
+      if (i18n.language === "en") {
+        return value.name.en.toLowerCase().includes(searchTerm);
+      } else {
+        return value.name.ka.toLowerCase().includes(searchTerm);
+      }
+    });
+
+    if (searchTerm) {
+      setFilteredData(newFilter);
+    } else {
+      setFilteredData(fetchedData);
+    }
+  }, [fetchedData, searchTerm]);
+
+  /* Search functionality finish */
 
   useEffect(() => {
     if (!token) {
@@ -135,7 +161,7 @@ const Dashboard = (props: Props) => {
       ) : (
         <>
           {/* By country Content */}
-          <Search />
+          <Search handleChange={handleChange} />
           <div className="sm:border-2 border-slate-100  sm:rounded-xl sm:my-6 px-0 sm:mx-10 md:mx-28  ">
             {/* Table header */}
             <div className="sm:w-full h-16 py-5 px-2 sm:px-10 bg-slate-100 sm:rounded-tl-lg overflow-hidden  sm:rounded-tr-lg  ">
@@ -235,7 +261,7 @@ const Dashboard = (props: Props) => {
               </div>
             </div>
             {/* Table */}
-            <div className="overflow-scroll max-h-[600px] ">
+            <div className="overflow-y-scroll min-h-[200px] max-h-[600px] ">
               <div className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 ">
                 <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
                   <div className="flex w-[85px] md:w-[90px] ">
@@ -252,7 +278,7 @@ const Dashboard = (props: Props) => {
                   </div>
                 </div>
               </div>
-              {fetchedData?.map((item: any) => (
+              {filteredData?.map((item: any) => (
                 <div
                   key={item._id}
                   className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 "
