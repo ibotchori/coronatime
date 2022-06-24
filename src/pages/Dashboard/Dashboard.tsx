@@ -47,6 +47,23 @@ const Dashboard = (props: Props) => {
 
   /* Search functionality finish */
 
+  /* Button sort functionality */
+  const [locationButtonSort, setLocationButtonSort] = useState(false);
+
+  const handleSort = () => {
+    setLocationButtonSort((locationButtonSort) => !locationButtonSort);
+  };
+
+  useEffect(() => {
+    if (locationButtonSort) {
+      filteredData.reverse();
+    } else {
+      filteredData.reverse();
+    }
+  }, [filteredData, locationButtonSort, i18n.language]);
+
+  /* Button sort functionality finish */
+
   useEffect(() => {
     if (!token) {
       navigate("/");
@@ -166,7 +183,11 @@ const Dashboard = (props: Props) => {
             {/* Table header */}
             <div className="sm:w-full h-16 py-5 px-2 sm:px-10 bg-slate-100 sm:rounded-tl-lg overflow-hidden  sm:rounded-tr-lg  ">
               <div className="flex justify-between md:w-[95%] lg:w-[70%] font-semibold text-sm">
-                <div className="flex cursor-pointer w-[85px] md:w-[90px]">
+                {/* Location Button */}
+                <div
+                  onClick={handleSort}
+                  className="flex cursor-pointer w-[85px] md:w-[90px]"
+                >
                   <p className="truncate md:text-clip">{t("location")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
                     <svg
@@ -189,6 +210,7 @@ const Dashboard = (props: Props) => {
                     </svg>
                   </div>
                 </div>
+                {/* New Cases Button */}
                 <div className="flex cursor-pointer w-[85px] md:w-[150px]">
                   <p className="truncate md:text-clip">{t("newCases")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
@@ -212,6 +234,7 @@ const Dashboard = (props: Props) => {
                     </svg>
                   </div>
                 </div>
+                {/* Death Button */}
                 <div className="flex cursor-pointer w-[85px] md:w-[105px]">
                   <p className="truncate md:text-clip">{t("death")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
@@ -235,6 +258,7 @@ const Dashboard = (props: Props) => {
                     </svg>
                   </div>
                 </div>
+                {/* Recovered Button */}
                 <div className="flex cursor-pointer w-[85px] md:w-[150px]">
                   <p className="truncate md:text-clip">{t("recovered")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
