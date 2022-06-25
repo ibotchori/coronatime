@@ -55,9 +55,11 @@ const Dashboard = (props: Props) => {
 
   /* Button sort functionality */
   const [locationButtonSort, setLocationButtonSort] = useState(false);
+  const [locationButtonClicked, setLocationButtonClicked] = useState(false);
 
   const handleSort = () => {
     setLocationButtonSort((locationButtonSort) => !locationButtonSort);
+    setLocationButtonClicked(true);
   };
 
   useEffect(() => {
@@ -196,8 +198,21 @@ const Dashboard = (props: Props) => {
                 >
                   <p className="truncate md:text-clip">{t("location")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
-                    <CaretUp />
-                    <CaretDown />
+                    {locationButtonClicked ? (
+                      <>
+                        {locationButtonSort ? <CaretUp /> : <CaretUpFill />}
+                        {!locationButtonSort ? (
+                          <CaretDown />
+                        ) : (
+                          <CaretDownFill />
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        <CaretUp />
+                        <CaretDown />
+                      </>
+                    )}
                   </div>
                 </div>
                 {/* New Cases Button */}
