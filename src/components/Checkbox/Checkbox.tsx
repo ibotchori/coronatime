@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 type Props = {
   label?: string;
@@ -25,9 +26,9 @@ function Checkbox({ label, anchor }: Props) {
         </label>
       </div>
       {anchor && (
-        <a className="text-blue-600" href="">
+        <Link to="/reset-password" className="text-blue-600">
           {anchor}
-        </a>
+        </Link>
       )}
     </div>
   );
