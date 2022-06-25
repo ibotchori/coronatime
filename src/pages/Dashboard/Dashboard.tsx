@@ -64,9 +64,9 @@ const Dashboard = (props: Props) => {
 
   useEffect(() => {
     if (locationButtonSort) {
-      fetchedData?.sort((a: any, b: any) => (a.name.en > b.name.en ? 1 : -1));
+      filteredData?.sort((a: any, b: any) => (a.name.en > b.name.en ? 1 : -1));
     } else {
-      fetchedData?.sort((a: any, b: any) => (a.name.en > b.name.en ? -1 : 1));
+      filteredData?.sort((a: any, b: any) => (a.name.en > b.name.en ? -1 : 1));
     }
   }, [filteredData, locationButtonSort, i18n.language]);
 
