@@ -4,7 +4,13 @@ import newCases from "assets/img/new-cases.png";
 import recovered from "assets/img/recovered.png";
 import death from "assets/img/death.png";
 import { useTranslation } from "react-i18next";
-import Search from "./components/Search";
+import {
+  Search,
+  CaretUp,
+  CaretDown,
+  CaretUpFill,
+  CaretDownFill,
+} from "./components/";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -190,96 +196,32 @@ const Dashboard = (props: Props) => {
                 >
                   <p className="truncate md:text-clip">{t("location")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M5 0.5L10 5.5L0 5.5L5 0.5Z" fill="#BFC0C4" />
-                    </svg>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M5 5.5L0 0.5H10L5 5.5Z" fill="#010414" />
-                    </svg>
+                    <CaretUp />
+                    <CaretDown />
                   </div>
                 </div>
                 {/* New Cases Button */}
                 <div className="flex cursor-pointer w-[85px] md:w-[150px]">
                   <p className="truncate md:text-clip">{t("newCases")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M5 0.5L10 5.5L0 5.5L5 0.5Z" fill="#BFC0C4" />
-                    </svg>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M5 5.5L0 0.5H10L5 5.5Z" fill="#010414" />
-                    </svg>
+                    <CaretUp />
+                    <CaretDown />
                   </div>
                 </div>
                 {/* Death Button */}
                 <div className="flex cursor-pointer w-[85px] md:w-[105px]">
                   <p className="truncate md:text-clip">{t("death")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M5 0.5L10 5.5L0 5.5L5 0.5Z" fill="#BFC0C4" />
-                    </svg>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M5 5.5L0 0.5H10L5 5.5Z" fill="#010414" />
-                    </svg>
+                    <CaretUp />
+                    <CaretDown />
                   </div>
                 </div>
                 {/* Recovered Button */}
                 <div className="flex cursor-pointer w-[85px] md:w-[150px]">
                   <p className="truncate md:text-clip">{t("recovered")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M5 0.5L10 5.5L0 5.5L5 0.5Z" fill="#BFC0C4" />
-                    </svg>
-                    <svg
-                      width="10"
-                      height="6"
-                      viewBox="0 0 10 6"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M5 5.5L0 0.5H10L5 5.5Z" fill="#010414" />
-                    </svg>
+                    <CaretUp />
+                    <CaretDown />
                   </div>
                 </div>
               </div>
