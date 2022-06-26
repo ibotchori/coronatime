@@ -91,11 +91,18 @@ const Dashboard = (props: Props) => {
     getData();
   }, []);
 
+  /* Log out functionality */
   const logOutHandler = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     navigate("/");
   };
+
+  const [showModal, setShowModal] = useState(false);
+  const showModalHandler = () => {
+    setShowModal((showModal) => !showModal);
+  };
+  /* Log out functionality finish */
 
   return (
     <div className="w-full min-h-screen py-4">
@@ -111,14 +118,29 @@ const Dashboard = (props: Props) => {
         </div>
 
         <div className="flex justify-between pt-1">
+          {/* Logout Button modal, on mobile */}
+          {showModal && (
+            <button
+              onClick={logOutHandler}
+              className="absolute shadow-md bg-white text-sm block sm:hidden  rounded-sm py-2 px-2  mt-10 ml-3 "
+            >
+              {t("logOut")}
+            </button>
+          )}
           <div>
             <LanguageToggle />
           </div>
-          <button className="sm:hidden flex pl-4 pt-1">&#9776;</button>
+          {/* Burger menu button */}
+          <div onClick={showModalHandler} className="flex flex-col ">
+            <button className="sm:hidden flex pl-4 pt-1">&#9776;</button>
+          </div>
+
           <div className="pl-6 pt-1  h-8 hidden sm:flex">
+            {/* Username */}
             <p className="border-r-2 pr-2  font-bold ">
               {JSON.parse(username)}
             </p>
+            {/* Logout Button */}
             <button onClick={logOutHandler} className=" pl-2 pb-1 w-20">
               {t("logOut")}
             </button>
