@@ -2,6 +2,7 @@ import React from "react";
 import { Button, MainLogo } from "components";
 import { useTranslation } from "react-i18next";
 import img from "assets/img/checked.png";
+import { Link } from "react-router-dom";
 
 type Props = {};
 
@@ -19,11 +20,11 @@ const PasswordConfirmation = (props: Props) => {
             {t("passwordUpdated")}
           </p>
         </div>
-        <div className=" sm:px-0 px-6">
+        <Link to="/" className=" sm:px-0 px-6">
           <div className="max-w-[400px]  py-8 mx-auto ">
             <Button title={t("signIn")} />
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
