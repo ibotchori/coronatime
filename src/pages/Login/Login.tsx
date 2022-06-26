@@ -37,12 +37,19 @@ const Login: FC = (props: Props) => {
     register,
     handleSubmit,
     reset,
+    watch,
     formState: { errors, dirtyFields },
   } = useForm<LoginInputTypes>({
     mode: "onChange",
     reValidateMode: "onChange",
     resolver: yupResolver(LoginSchema),
   });
+
+  // hide errors from API when inputs changes
+  useEffect(() => {
+    setUsernameErrorFromAPI(false);
+    setPasswordErrorFromAPI(false);
+  }, [watch("username")]);
 
   const onSubmit = async (data: LoginInputTypes) => {
     const dataForSubmit = data;
