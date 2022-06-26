@@ -115,14 +115,13 @@ const Dashboard = (props: Props) => {
             <LanguageToggle />
           </div>
           <button className="sm:hidden flex pl-4 pt-1">&#9776;</button>
-          <div
-            onClick={logOutHandler}
-            className="pl-6 pt-1  h-8 hidden sm:flex"
-          >
+          <div className="pl-6 pt-1  h-8 hidden sm:flex">
             <p className="border-r-2 pr-2  font-bold ">
               {JSON.parse(username)}
             </p>
-            <button className="pl-2 pb-1 w-20">{t("logOut")}</button>
+            <button onClick={logOutHandler} className=" pl-2 pb-1 w-20">
+              {t("logOut")}
+            </button>
           </div>
         </div>
       </div>
