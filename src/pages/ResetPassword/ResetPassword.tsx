@@ -39,7 +39,7 @@ const ResetPassword = (props: Props) => {
   const onSubmit = async (data: ResetPasswordInputTypes) => {
     console.log("🚀 ~ onSubmit ~ data", data);
     // add backlink property to data
-    data["backlink"] = "http://localhost:3000/account-confirmation";
+    data["backlink"] = "http://localhost:3000/new-password";
 
     try {
       await axios({
