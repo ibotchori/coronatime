@@ -47,6 +47,7 @@
   "usernameIsTaken": "This username is already taken",
   "emailIsTaken": "This email is already taken",
   "noUser": "There is no user with this username",
+  "noEmail": "There is no user with this Email",
   "credentials": "Please, provide correct credentials...",
   "search": "Search by country"
   }
