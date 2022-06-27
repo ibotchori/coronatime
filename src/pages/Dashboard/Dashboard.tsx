@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { LanguageToggle, MainLogo } from "components";
-import newCases from "assets/img/new-cases.png";
-import recovered from "assets/img/recovered.png";
-import death from "assets/img/death.png";
 import { useTranslation } from "react-i18next";
 import {
   Search,
+  Worldwide,
   CaretUp,
   CaretDown,
   CaretUpFill,
@@ -178,32 +176,7 @@ const Dashboard = (props: Props) => {
       </div>
 
       {showContent ? (
-        <>
-          {/* Worldwide Content */}
-          <div className="flex md:flex-row flex-col justify-between items-center py-2 sm:py-10  w-full h-full px-4 sm:px-10 md:px-28 ">
-            <div className=" w-full md:w-[32%] h-[200px] sm:h-[300px] bg-blue-50 rounded-3xl flex flex-col justify-center items-center my-2">
-              <img src={newCases} alt="" />
-              <p className="text-xl pt-4 text-center sm:pt-8 pb-2 sm:pb-4 font-semibold">
-                {t("newCases")}
-              </p>
-              <span className="font-extrabold text-[39px]">17,750</span>
-            </div>
-            <div className="w-full md:w-[32%] h-[200px] sm:h-[300px] bg-green-50 rounded-3xl flex flex-col justify-center items-center my-2">
-              <img className="pt-6" src={recovered} alt="" />
-              <p className="text-xl pt-4 text-center sm:pt-8 pb-2 sm:pb-4 font-semibold">
-                {t("recovered")}
-              </p>
-              <span className="font-extrabold text-[39px]">17,750</span>
-            </div>
-            <div className="w-full md:w-[32%] h-[200px] sm:h-[300px] bg-yellow-50 rounded-3xl flex flex-col justify-center items-center my-2">
-              <img className="pt-3" src={death} alt="" />
-              <p className="text-xl pt-4 text-center sm:pt-8 pb-2 sm:pb-4 font-semibold">
-                {t("death")}
-              </p>
-              <span className="font-extrabold text-[39px]">17,750</span>
-            </div>
-          </div>
-        </>
+        <Worldwide data={fetchedData} />
       ) : (
         <>
           {/* By country Content */}
