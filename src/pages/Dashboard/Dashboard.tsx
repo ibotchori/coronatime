@@ -14,6 +14,21 @@ import axios from "axios";
 
 type Props = {};
 
+export interface FetchedDataTypes {
+  code: string;
+  name: {
+    en: string;
+    ka: string;
+  };
+  statistics: {
+    confirmed: number;
+    critical: number;
+    deaths: number;
+    recovered: number;
+  };
+  _id: string;
+}
+
 const Dashboard = (props: Props) => {
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
@@ -22,7 +37,7 @@ const Dashboard = (props: Props) => {
   const username: any = localStorage.getItem("username");
   const token: any = localStorage.getItem("token");
 
-  const [fetchedData, setFetchedData] = useState<object[]>([]);
+  const [fetchedData, setFetchedData] = useState<FetchedDataTypes[]>([]);
   const [showContent, setShowContent] = useState<boolean>(true);
 
   /* Search functionality */
@@ -44,9 +59,9 @@ const Dashboard = (props: Props) => {
 
   useEffect(() => {
     if (locationButtonSort) {
-      fetchedData?.sort((a: any, b: any) => (a.name.en > b.name.en ? 1 : -1));
+      fetchedData?.sort((a, b) => (a.name.en > b.name.en ? 1 : -1));
     } else {
-      fetchedData?.sort((a: any, b: any) => (a.name.en > b.name.en ? -1 : 1));
+      fetchedData?.sort((a, b) => (a.name.en > b.name.en ? -1 : 1));
     }
   }, [fetchedData, locationButtonSort, i18n.language]);
 
@@ -236,7 +251,7 @@ const Dashboard = (props: Props) => {
                 </div>
               </div>
               {fetchedData
-                .filter((item: any) => {
+                .filter((item) => {
                   if (searchTerm === "") {
                     return item;
                   } else if (item.name.en.toLowerCase().includes(searchTerm)) {
@@ -245,7 +260,7 @@ const Dashboard = (props: Props) => {
                     return item;
                   }
                 })
-                .map((item: any) => (
+                .map((item) => (
                   <div
                     key={item._id}
                     className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 "
