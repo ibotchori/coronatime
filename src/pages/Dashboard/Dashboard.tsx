@@ -26,29 +26,11 @@ const Dashboard = (props: Props) => {
   const [showContent, setShowContent] = useState<boolean>(true);
 
   /* Search functionality */
-  const [filteredData, setFilteredData] = useState<object[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
-
-  useEffect(() => {
-    const newFilter: object[] = fetchedData.filter((value: any) => {
-      if (i18n.language === "en") {
-        return value.name.en.toLowerCase().includes(searchTerm);
-      } else {
-        return value.name.ka.toLowerCase().includes(searchTerm);
-      }
-    });
-
-    if (searchTerm) {
-      setFilteredData(newFilter);
-    } else {
-      setFilteredData(fetchedData);
-    }
-  }, [fetchedData, searchTerm]);
-
   /* Search functionality finish */
 
   /* Button sort functionality */
@@ -62,11 +44,11 @@ const Dashboard = (props: Props) => {
 
   useEffect(() => {
     if (locationButtonSort) {
-      filteredData?.sort((a: any, b: any) => (a.name.en > b.name.en ? 1 : -1));
+      fetchedData?.sort((a: any, b: any) => (a.name.en > b.name.en ? 1 : -1));
     } else {
-      filteredData?.sort((a: any, b: any) => (a.name.en > b.name.en ? -1 : 1));
+      fetchedData?.sort((a: any, b: any) => (a.name.en > b.name.en ? -1 : 1));
     }
-  }, [filteredData, locationButtonSort, i18n.language]);
+  }, [fetchedData, locationButtonSort, i18n.language]);
 
   /* Button sort functionality finish */
 
@@ -253,29 +235,39 @@ const Dashboard = (props: Props) => {
                   </div>
                 </div>
               </div>
-              {filteredData?.map((item: any) => (
-                <div
-                  key={item._id}
-                  className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 "
-                >
-                  <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
-                    <div className="flex w-[85px] md:w-[90px] ">
-                      <p>
-                        {i18n.language === "en" ? item.name.en : item.name.ka}
-                      </p>
-                    </div>
-                    <div className="flex w-[85px] md:w-[150px] ">
-                      <p>{item.statistics.confirmed}</p>
-                    </div>
-                    <div className="flex   w-[85px] md:w-[105px]">
-                      <p>{item.statistics.deaths}</p>
-                    </div>
-                    <div className="flex  w-[85px] md:w-[150px]">
-                      <p>{item.statistics.recovered}</p>
+              {fetchedData
+                .filter((item: any) => {
+                  if (searchTerm === "") {
+                    return item;
+                  } else if (item.name.en.toLowerCase().includes(searchTerm)) {
+                    return item;
+                  } else if (item.name.ka.toLowerCase().includes(searchTerm)) {
+                    return item;
+                  }
+                })
+                .map((item: any) => (
+                  <div
+                    key={item._id}
+                    className="sm:w-full h-14 py-4 px-2 sm:px-10 border-b-2 border-slate-50 "
+                  >
+                    <div className="flex justify-between md:w-[95%] lg:w-[70%] font-base text-xs sm:text-sm">
+                      <div className="flex w-[85px] md:w-[90px] ">
+                        <p>
+                          {i18n.language === "en" ? item.name.en : item.name.ka}
+                        </p>
+                      </div>
+                      <div className="flex w-[85px] md:w-[150px] ">
+                        <p>{item.statistics.confirmed}</p>
+                      </div>
+                      <div className="flex   w-[85px] md:w-[105px]">
+                        <p>{item.statistics.deaths}</p>
+                      </div>
+                      <div className="flex  w-[85px] md:w-[150px]">
+                        <p>{item.statistics.recovered}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         </>
