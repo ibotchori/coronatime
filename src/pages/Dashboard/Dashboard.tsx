@@ -23,7 +23,7 @@ const Dashboard = (props: Props) => {
   const token: any = localStorage.getItem("token");
 
   const [fetchedData, setFetchedData] = useState<object[]>([]);
-  const [showContent, setShowContent] = useState<boolean>(false);
+  const [showContent, setShowContent] = useState<boolean>(true);
 
   /* Search functionality */
   const [filteredData, setFilteredData] = useState<object[]>([]);

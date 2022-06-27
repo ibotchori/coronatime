@@ -9,23 +9,15 @@ type Props = {
 const Worldwide = ({ data }: Props) => {
   const { t } = useTranslation();
 
-  let newCases: number = data
-    .map((a: any) => a.statistics.confirmed)
-    .reduce(function (a: number, b: number) {
-      return a + b;
-    });
+  let newCases: number = 0;
+  let recovered: number = 0;
+  let deaths: number = 0;
 
-  let recovered: number = data
-    .map((a: any) => a.statistics.recovered)
-    .reduce(function (a: number, b: number) {
-      return a + b;
-    });
-
-  let deaths: number = data
-    .map((a: any) => a.statistics.deaths)
-    .reduce(function (a: number, b: number) {
-      return a + b;
-    });
+  data.forEach((a: any) => {
+    newCases += a.statistics.confirmed;
+    recovered += a.statistics.recovered;
+    deaths += a.statistics.deaths;
+  });
 
   return (
     <div className="flex md:flex-row flex-col justify-between items-center py-2 sm:py-10  w-full h-full px-4 sm:px-10 md:px-28 ">
