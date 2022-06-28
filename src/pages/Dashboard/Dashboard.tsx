@@ -49,22 +49,44 @@ const Dashboard = (props: Props) => {
   /* Search functionality finish */
 
   /* Button sort functionality */
-  const [locationButtonSort, setLocationButtonSort] = useState(false);
-  const [locationButtonClicked, setLocationButtonClicked] = useState(false);
+  const [order, setOrder] = useState("DSC");
+  const [sortBy, setSortBy] = useState("");
 
-  const handleSort = () => {
-    setLocationButtonSort((locationButtonSort) => !locationButtonSort);
-    setLocationButtonClicked(true);
-  };
-
-  useEffect(() => {
-    if (locationButtonSort) {
-      fetchedData?.sort((a, b) => (a.name.en > b.name.en ? 1 : -1));
+  const sorting = (columnKey: string) => {
+    if (columnKey === "location") {
+      if (order === "ASC") {
+        const sorted = [...fetchedData].sort((a: any, b: any) =>
+          a.name.en > b.name.en ? 1 : -1
+        );
+        setFetchedData(sorted);
+        setOrder("DSC");
+      }
+      if (order === "DSC") {
+        const sorted = [...fetchedData].sort((a: any, b: any) =>
+          a.name.en < b.name.en ? 1 : -1
+        );
+        setFetchedData(sorted);
+        setOrder("ASC");
+      }
     } else {
-      fetchedData?.sort((a, b) => (a.name.en > b.name.en ? -1 : 1));
+      if (order === "ASC") {
+        const sorted = [...fetchedData].sort((a: any, b: any) =>
+          a.statistics[columnKey] > b.statistics[columnKey] ? 1 : -1
+        );
+        setFetchedData(sorted);
+        setOrder("DSC");
+      }
+      if (order === "DSC") {
+        const sorted = [...fetchedData].sort((a: any, b: any) =>
+          a.statistics[columnKey] < b.statistics[columnKey] ? 1 : -1
+        );
+        setFetchedData(sorted);
+        setOrder("ASC");
+      }
     }
-  }, [fetchedData, locationButtonSort, i18n.language]);
 
+    setSortBy(columnKey);
+  };
   /* Button sort functionality finish */
 
   useEffect(() => {
@@ -184,19 +206,15 @@ const Dashboard = (props: Props) => {
               <div className="flex justify-between md:w-[95%] lg:w-[70%] font-semibold text-sm">
                 {/* Location Button */}
                 <div
-                  onClick={handleSort}
+                  onClick={() => sorting("location")}
                   className="flex cursor-pointer w-[85px] md:w-[90px]"
                 >
                   <p className="truncate md:text-clip">{t("location")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
-                    {locationButtonClicked ? (
+                    {sortBy === "location" ? (
                       <>
-                        {locationButtonSort ? <CaretUp /> : <CaretUpFill />}
-                        {!locationButtonSort ? (
-                          <CaretDown />
-                        ) : (
-                          <CaretDownFill />
-                        )}
+                        {order === "ASC" ? <CaretUp /> : <CaretUpFill />}
+                        {order === "DSC" ? <CaretDown /> : <CaretDownFill />}
                       </>
                     ) : (
                       <>
@@ -207,27 +225,63 @@ const Dashboard = (props: Props) => {
                   </div>
                 </div>
                 {/* New Cases Button */}
-                <div className="flex cursor-pointer w-[85px] md:w-[150px]">
+                <div
+                  onClick={() => sorting("confirmed")}
+                  className="flex cursor-pointer w-[85px] md:w-[150px]"
+                >
                   <p className="truncate md:text-clip">{t("newCases")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
-                    <CaretUp />
-                    <CaretDown />
+                    {sortBy === "confirmed" ? (
+                      <>
+                        {order === "ASC" ? <CaretUp /> : <CaretUpFill />}
+                        {order === "DSC" ? <CaretDown /> : <CaretDownFill />}
+                      </>
+                    ) : (
+                      <>
+                        <CaretUp />
+                        <CaretDown />
+                      </>
+                    )}
                   </div>
                 </div>
                 {/* Death Button */}
-                <div className="flex cursor-pointer w-[85px] md:w-[105px]">
+                <div
+                  onClick={() => sorting("deaths")}
+                  className="flex cursor-pointer w-[85px] md:w-[105px]"
+                >
                   <p className="truncate md:text-clip">{t("death")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
-                    <CaretUp />
-                    <CaretDown />
+                    {sortBy === "deaths" ? (
+                      <>
+                        {order === "ASC" ? <CaretUp /> : <CaretUpFill />}
+                        {order === "DSC" ? <CaretDown /> : <CaretDownFill />}
+                      </>
+                    ) : (
+                      <>
+                        <CaretUp />
+                        <CaretDown />
+                      </>
+                    )}
                   </div>
                 </div>
                 {/* Recovered Button */}
-                <div className="flex cursor-pointer w-[85px] md:w-[150px]">
+                <div
+                  onClick={() => sorting("recovered")}
+                  className="flex cursor-pointer w-[85px] md:w-[150px]"
+                >
                   <p className="truncate md:text-clip">{t("recovered")}</p>
                   <div className="flex flex-col justify-between pl-1 sm:pl-2 mt-1 h-[14px]">
-                    <CaretUp />
-                    <CaretDown />
+                    {sortBy === "recovered" ? (
+                      <>
+                        {order === "ASC" ? <CaretUp /> : <CaretUpFill />}
+                        {order === "DSC" ? <CaretDown /> : <CaretDownFill />}
+                      </>
+                    ) : (
+                      <>
+                        <CaretUp />
+                        <CaretDown />
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
