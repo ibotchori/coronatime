@@ -11,6 +11,7 @@ import {
 } from "./components/";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import UseSearch from "./hooks/UseSearch";
 
 type Props = {};
 
@@ -41,11 +42,7 @@ const Dashboard = (props: Props) => {
   const [showContent, setShowContent] = useState<boolean>(true);
 
   /* Search functionality */
-  const [searchTerm, setSearchTerm] = useState<string>("");
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
-  };
+  const { searchTerm, handleChange } = UseSearch();
   /* Search functionality finish */
 
   /* Button sort functionality */
