@@ -12,6 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UseSearch from "./hooks/UseSearch";
+import UseLogOut from "./hooks/UseLogOut";
 
 type Props = {};
 
@@ -41,9 +42,11 @@ const Dashboard = (props: Props) => {
   const [fetchedData, setFetchedData] = useState<FetchedDataTypes[]>([]);
   const [showContent, setShowContent] = useState<boolean>(true);
 
-  /* Search functionality */
+  /* Custom Hooks */
+  // Log out
+  const { showModal, showModalHandler, logOutHandler } = UseLogOut();
+  // Search functionality
   const { searchTerm, handleChange } = UseSearch();
-  /* Search functionality finish */
 
   /* Button sort functionality */
   const [order, setOrder] = useState("DSC");
@@ -104,19 +107,6 @@ const Dashboard = (props: Props) => {
     };
     getData();
   }, []);
-
-  /* Log out functionality */
-  const logOutHandler = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
-    navigate("/");
-  };
-
-  const [showModal, setShowModal] = useState(false);
-  const showModalHandler = () => {
-    setShowModal((showModal) => !showModal);
-  };
-  /* Log out functionality finish */
 
   return (
     <div className="w-full min-h-screen py-4">
