@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "https://coronatime-api.devtest.ge/api";
+axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
 
 const getData = async (token: string) => {
   const config = {
@@ -8,14 +8,14 @@ const getData = async (token: string) => {
     },
   };
 
-  const response = await axios.get(API_URL + "/countries", config);
+  const response = await axios.get("/countries", config);
   return response.data;
 };
 
 const logIn = async (loginData: object) => {
   const response = await axios({
     method: "POST",
-    url: API_URL + "/login",
+    url: "/login",
     data: loginData,
   });
 
@@ -24,7 +24,7 @@ const logIn = async (loginData: object) => {
 const signUp = async (signUpData: object) => {
   const response = await axios({
     method: "POST",
-    url: API_URL + "/register",
+    url: "/register",
     data: signUpData,
   });
 
@@ -33,7 +33,7 @@ const signUp = async (signUpData: object) => {
 const accountConfirmation = async (hash: object) => {
   const response = await axios({
     method: "POST",
-    url: API_URL + "/confirm-account",
+    url: "/confirm-account",
     data: hash,
   });
 
@@ -42,7 +42,7 @@ const accountConfirmation = async (hash: object) => {
 const passwordRecover = async (data: object) => {
   const response = await axios({
     method: "POST",
-    url: API_URL + "/password/recover",
+    url: "/password/recover",
     data: data,
   });
 
@@ -51,7 +51,7 @@ const passwordRecover = async (data: object) => {
 const passwordRecoveryLink = async (data: object) => {
   const response = await axios({
     method: "POST",
-    url: API_URL + "/password/send-recovery-link",
+    url: "/password/send-recovery-link",
     data: data,
   });
 
