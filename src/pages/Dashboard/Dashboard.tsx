@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import UseSearch from "./hooks/UseSearch";
 import UseLogOut from "./hooks/UseLogOut";
+import APIservice from "services/service";
 
 type Props = {};
 
@@ -94,17 +95,17 @@ const Dashboard = (props: Props) => {
       navigate("/");
     }
 
-    // API call
-    const API_URL = "https://coronatime-api.devtest.ge/api/countries";
-    const config = {
-      headers: {
-        Authorization: `Bearer ${JSON.parse(token)}`,
-      },
-    };
     const getData = async () => {
-      const { data } = await axios.get(API_URL, config);
-      setFetchedData(data);
+      try {
+        // HTTP request from service file
+        const data = await APIservice.getData(token);
+        setFetchedData(data);
+      } catch (error) {
+        console.log(error);
+        alert("Something went wrong, try again later");
+      }
     };
+
     getData();
   }, []);
 
