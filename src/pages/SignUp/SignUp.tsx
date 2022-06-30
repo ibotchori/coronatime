@@ -19,6 +19,7 @@ import {
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import APIservice from "services";
 
 type Props = {};
 
@@ -55,11 +56,8 @@ const SignUp = (props: Props) => {
     data["redirectOnConfirm"] = "http://localhost:3000/account-confirmation";
 
     try {
-      await axios({
-        method: "POST",
-        url: `https://coronatime-api.devtest.ge/api/register`,
-        data: data,
-      });
+      // HTTP request from service file
+      await APIservice.signUp(data);
 
       setUsernameErrorFromAPI(false);
       setEmailErrorFromAPI(false);

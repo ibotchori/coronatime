@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import img from "assets/img/checked.png";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import APIservice from "services";
 
 type Props = {};
 
@@ -18,11 +19,8 @@ const AccountConfirmation = (props: Props) => {
       hash: location.search.slice(6),
     };
     try {
-      await axios({
-        method: "POST",
-        url: `https://coronatime-api.devtest.ge/api/confirm-account`,
-        data: data,
-      });
+      // HTTP request from service file
+      await APIservice.accountConfirmation(data);
       navigate("/");
     } catch (error: any) {
       alert("Something went wrong, try again later");

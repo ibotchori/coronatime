@@ -10,10 +10,9 @@ import {
   CaretDownFill,
 } from "./components/";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import UseSearch from "./hooks/UseSearch";
 import UseLogOut from "./hooks/UseLogOut";
-import APIservice from "services/service";
+import APIservice from "services";
 
 type Props = {};
 

@@ -13,8 +13,8 @@ import {
   HaveAccount,
   LanguageToggle,
 } from "components/";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import APIservice from "services";
 
 type Props = {};
 
@@ -55,11 +55,8 @@ const Login: FC = (props: Props) => {
     const dataForSubmit = data;
 
     try {
-      const result = await axios({
-        method: "POST",
-        url: `https://coronatime-api.devtest.ge/api/login`,
-        data: dataForSubmit,
-      });
+      // HTTP request from service file
+      const result = await APIservice.logIn(dataForSubmit);
       // save token and username to local storage
       localStorage.setItem("token", JSON.stringify(result.data.token));
       localStorage.setItem("username", JSON.stringify(data.username));

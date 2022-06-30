@@ -7,8 +7,8 @@ import {
   NewPasswordInputTypes,
   NewPasswordSchema,
 } from "Helpers/FormSchema/NewPasswordSchema";
-import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import APIservice from "services";
 
 type Props = {};
 
@@ -36,11 +36,8 @@ const NewPassword = (props: Props) => {
     data["hash"] = location.search.slice(6);
 
     try {
-      await axios({
-        method: "POST",
-        url: `https://coronatime-.devtest.ge/api/password/recover`,
-        data: data,
-      });
+      // HTTP request from service file
+      await APIservice.passwordRecover(data);
       navigate("/password-confirmation");
       reset();
     } catch (error: any) {

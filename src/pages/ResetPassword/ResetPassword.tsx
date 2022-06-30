@@ -9,6 +9,7 @@ import {
 } from "Helpers/FormSchema/ResetPasswordSchema";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import APIservice from "services";
 
 type Props = {};
 
@@ -42,12 +43,8 @@ const ResetPassword = (props: Props) => {
     data["backlink"] = "http://localhost:3000/new-password";
 
     try {
-      await axios({
-        method: "POST",
-        url: `https://coronatime-api.devtest.ge/api/password/send-recovery-link`,
-        data: data,
-      });
-
+      // HTTP request from service file
+      await APIservice.passwordRecoveryLink(data);
       reset();
       navigate("/email-confirmation");
     } catch (err: any) {
